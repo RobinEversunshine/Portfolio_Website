@@ -37,9 +37,14 @@ const scrollDuration = 20;
 
 
 // rotate container parallel movement
-const minScroll = 1320;
+let minScroll = 1320;
 const maxScroll = 4600;
 const scrollGradient = 800;
+
+if (window.innerHeight < 500) {
+    minScroll = 1520;
+}
+
 
 const minSpeed = 0.97;
 const maxSpeed = 0;

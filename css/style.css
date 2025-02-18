@@ -84,6 +84,9 @@ body {
 
 
 
+
+
+
 nav {
     position: fixed;
     width: 100%;
@@ -111,6 +114,15 @@ nav a {
     font-size: 15px;
 }
 
+@media screen and (max-width: 520px) {
+    .upTitleText {
+        font-size: 15px;
+    }
+    nav a {
+        font-size: 12px;
+    }
+}
+
 
 .titleContainer {
     width: 100%;
@@ -132,13 +144,21 @@ nav a {
     animation-duration: 1s;
     animation-fill-mode: both;
 
-    transition: font-size 0.3s ease 0.1s;
+    transition: font-size 0.3s ease 0.1s, padding 0.3s ease 0.1s;
 }
 
 .title:hover {
     font-size: 70px;
 }
 
+
+@media screen and (max-width: 500px) {
+    .title {
+        font-size: 30px;
+        padding: 2px;
+    }
+
+}
 
 
 
@@ -280,12 +300,6 @@ nav a {
     opacity: 0%;
     transition: opacity 0.5s ease;
 }
-
-/* @media screen and (max-width: 1100px) {
-    .descriptionContainer {
-        display: none;
-    }
-} */
 
 
 .descriptionBox {
