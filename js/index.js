@@ -37,7 +37,7 @@ const scrollDuration = 20;
 
 
 // rotate container parallel movement
-const minScroll = 1400;
+const minScroll = 1320;
 const maxScroll = 4600;
 const scrollGradient = 800;
 
