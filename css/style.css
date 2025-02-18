@@ -164,12 +164,13 @@ nav a {
 
 .rotateContainer {
     /* border: 1px solid rgb(255, 0, 0); */
-    /* position: sticky; */
-    top: 0; 
-    left: 100px;
+    position: absolute;
+    top: 210vh; 
+    /* left: 50px; */
     text-align: center; 
     width: 100vw;
     height: 95vh;
+    
     /* opacity: 0%; */
 
     display: flex;
@@ -317,12 +318,10 @@ nav a {
 
 
 .description {
-    /* font-size: 17px; */
     margin: 10px;
 }
 
 .description2 {
-    /* font-size: 17px; */
     margin: 10px;
 }
 
@@ -339,18 +338,26 @@ nav a {
 
 .videoContainer {
     /* border: 1px solid black; */
-    /* position: fixed; */
     position: absolute;
     width: 200%;
     height: 200%;
     z-index: -10;
-    /* top: 190vh; */
     top: 0;
     opacity: 0%;
     /* filter: blur(5px); */
 
     transition: opacity 1s ease;
 }
+
+.videoMask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 90%;
+    z-index: 10;
+}
+
 
 video {
     position: absolute;

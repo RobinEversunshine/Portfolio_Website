@@ -36,15 +36,14 @@
         </div>
     </div>
 
-    <div style="
-    /* border: 1px solid rgb(255, 7, 7); */
+    <!-- <div style="
+    border: 1px solid rgb(255, 7, 7);
     width: 100%;
     height: 120vh;
-    "></div>
+    "></div> -->
 
     <div style="
     position: absolute;
-    /* border: 1px solid rgb(22, 201, 255); */
     width: 100%;
     height: 115vh;
     top: 80vh;
@@ -222,16 +221,7 @@
     
 
     <div class="videoContainer">
-        
-        <div style="
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        background-color: white;
-        opacity: 90%;
-        z-index: 10;
-        ">
-        </div>
+        <div class="videoMask"></div>
 
         <video autoplay loop muted id="video1">
             <source id="source1" src="videos/anim.mp4" type="video/mp4">
@@ -241,8 +231,17 @@
             <source id="source2" src="videos/anim.mp4" type="video/mp4">
         </video>
         
+    </div>
+
+    <div style="
+    /* border: 1px solid rgb(255, 0, 0); */
+    position: absolute;
+    top: 210vh; 
+    height: 4800px;
+    ">
 
     </div>
+
 
     <script src="https://unpkg.com/@studio-freight/lenis"></script>
     <script src="js/index.js"></script>

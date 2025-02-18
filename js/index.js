@@ -33,17 +33,15 @@ let scrollDir = "down";
 let videoSwitch = 1;
 
 
-const scrollDuration = 20;
+let scrollDuration = 20;
+// window.innerHeight * 0.03;
 
 
 // rotate container parallel movement
-let minScroll = 1320;
-const maxScroll = 4600;
-const scrollGradient = 800;
+let minScroll = window.innerHeight * 2;
+let maxScroll = 5200;
+let scrollGradient = window.innerHeight * 1.5;
 
-if (window.innerHeight < 500) {
-    minScroll = 1520;
-}
 
 
 const minSpeed = 0.97;
@@ -57,8 +55,7 @@ body.style.height = (projects.length + 1) * 30 * scrollDuration + window.innerHe
 
 function getScroll(scroll){
     // video parallel movement
-    videoContainer.style.transform = `translateY(${scroll * 0.85 + 200}px)`;
-
+    videoContainer.style.transform = `translateY(${scroll * 0.85 + window.innerHeight * 0.25}px)`;
 
 
     // rotate container parallel movement
@@ -84,13 +81,13 @@ function getScroll(scroll){
 
 
     // show video & description after scrolling down
-    if (scroll < window.innerHeight * 1.8 || scroll > 5200){
+    if (scroll < window.innerHeight * 1.8 || scroll > maxScroll * 1.1){
         videoContainer.style.opacity = "0%";
         descriptionContainer.style.opacity = "0%";
         rotateContainer2.style.opacity = "0%";
     }else{
         videoContainer.style.opacity = "100%";
-        if (window.innerWidth > 1200) {
+        if (window.innerWidth > minScroll * 0.9) {
             descriptionContainer.style.opacity = "100%";
         }
         rotateContainer2.style.opacity = "100%";
@@ -105,7 +102,8 @@ function getScroll(scroll){
 
 
     // get scroll value
-    let scrollValue = scroll - window.innerHeight * 1.9;
+    // console.log(scroll);
+    let scrollValue = scroll - 1400;
     scrollValue = -scrollValue / scrollDuration + 25;
     scrollValue = Math.floor(scrollValue / 30) * 30;
 
@@ -283,6 +281,12 @@ function changeDesc(){
 
 // hide description when window width is small
 function checkWidth() {
+    getScroll(scrollY);
+
+    minScroll = window.innerHeight * 2;
+    // maxScroll = window.innerHeight * 7;
+    scrollGradient = window.innerHeight * 1.5;
+
     if (window.innerWidth < 1150) {
         descriptionContainer.style.opacity = "0%";
     } else {
