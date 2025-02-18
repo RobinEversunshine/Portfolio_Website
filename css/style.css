@@ -193,6 +193,7 @@ nav a {
 
 
 .projectBox {
+    /* border: 1px solid black; */
     width: 600px;
 
     display: flex;
@@ -201,12 +202,14 @@ nav a {
     justify-content: space-around;
 
     transition: opacity 1s ease 0.2s,
-    width 1s ease 0.2s;
+    width 1s ease 0.2s,
+    translate 1s ease 0.3s;
 }
 
 .projectBox2 {
-    padding-left: 40px;
-    padding-right: 40px;
+    /* border: 1px solid black; */
+    padding-left: 6%;
+    padding-right: 6%;
     flex: 1;
 
     display: flex;
@@ -218,6 +221,7 @@ nav a {
 
 .desc {
     font-size: 15px;
+    white-space: nowrap;
 }
 
 
@@ -240,8 +244,8 @@ nav a {
     justify-content: center;
     align-items: center;
 
-    transition: width 1s ease 0.2s,
-    height 1s ease,
+    transition: width 1s ease 0.3s,
+    height 1s ease 0.1s,
     transform 0.3s ease;
 }
 
@@ -340,6 +344,7 @@ video {
     height: 100%;
     object-fit: cover;
     z-index: -10;
+    pointer-events: none
 
     transition: opacity 2s ease 0.5s;
 }
@@ -355,5 +360,6 @@ h1 {
 h2 {
     font-size: 30px;
     margin: 10px;
+    white-space: nowrap;
 }
 

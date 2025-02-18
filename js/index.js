@@ -201,11 +201,13 @@ function rotate(transitionList){
         // image box size scale
         let imageBox = project.getElementsByClassName("imageBox")[0];
         if (transitionAbs == 0){
+            projBox.style.translate = "30px 0";
             projBox.style.width = "680px";
             imageBox.style.width = "320px";
             imageBox.style.height = "180px";
         }else{
-            projBox.style.width = "600px";
+            projBox.style.translate = "-20px 0";
+            projBox.style.width = "400px";
             imageBox.style.width = "80px";
             imageBox.style.height = "80px";
         }
