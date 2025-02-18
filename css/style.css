@@ -72,7 +72,7 @@
 
 
 body {
-    /* background-color: white; */
+    background-color: white;
     max-width: 100vw;
     overflow-x: hidden;
     user-select: none;
