@@ -295,6 +295,10 @@ nav a {
     transform 0.3s ease;
 }
 
+
+
+
+
 .imageBox:hover {
     transform: scale(1.1);
 }
