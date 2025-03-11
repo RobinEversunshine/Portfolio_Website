@@ -11,6 +11,7 @@ const body = document.getElementById("body");
 
 const rotateContainer = document.getElementsByClassName("rotateContainer")[0];
 const rotateContainer2 = document.getElementsByClassName("rotateContainer2")[0];
+const rotateContainer3 = document.getElementsByClassName("rotateContainer3")[0];
 const projects = document.getElementsByClassName("rotateBox");
 const iam = document.getElementById("iam");
 
@@ -38,10 +39,17 @@ let scrollDuration = 20;
 
 
 // rotate container parallel movement
-let minScroll = window.innerHeight * 2;
-let maxScroll = 5200;
-let scrollGradient = window.innerHeight * 1.5;
+let minScroll;
+let maxScroll;
+let scrollGradient;
 
+function scrollRange(){
+    minScroll = window.innerHeight * 2;
+    maxScroll = window.innerHeight * 2 + 3800;
+    scrollGradient = window.innerHeight * 1.5;
+}
+
+scrollRange()
 
 
 const minSpeed = 0.97;
@@ -50,7 +58,7 @@ let scrollSpeed = 0;
 let scrollAmount = 0;
 
 
-body.style.height = (projects.length + 1) * 30 * scrollDuration + window.innerHeight * 8 + "px";
+// body.style.height = (projects.length + 1) * 30 * scrollDuration + window.innerHeight * 8 + "px";
 
 
 function getScroll(scroll){
@@ -84,16 +92,16 @@ function getScroll(scroll){
     if (scroll < window.innerHeight * 1.8 || scroll > maxScroll * 1.1){
         videoContainer.style.opacity = "0%";
         descriptionContainer.style.opacity = "0%";
-        rotateContainer2.style.opacity = "0%";
+        rotateContainer3.style.opacity = "0%";
     }else{
         videoContainer.style.opacity = "100%";
         if (window.innerWidth > minScroll * 0.9) {
             descriptionContainer.style.opacity = "100%";
         }
-        rotateContainer2.style.opacity = "100%";
+        rotateContainer3.style.opacity = "100%";
     }
 
-    if (scroll < window.innerHeight * 1.5){
+    if (scroll < window.innerHeight * 1.5 || scroll > maxScroll * 1.1){
         iam.style.opacity = "0%";
     }else{
         iam.style.opacity = "100%";
@@ -103,7 +111,7 @@ function getScroll(scroll){
 
     // get scroll value
     // console.log(scroll);
-    let scrollValue = scroll - 1400;
+    let scrollValue = scroll - window.innerHeight * 2;
     scrollValue = -scrollValue / scrollDuration + 25;
     scrollValue = Math.floor(scrollValue / 30) * 30;
 
@@ -116,7 +124,7 @@ function getScroll(scroll){
         // clamp rotation
         amount = Math.min(Math.max(amount, -120), 120);
         amount = Math.max(amount, (projects.length - i - 1) * -30);
-        // amount = Math.min(amount, (i) * 30);
+        amount = Math.min(amount, (i) * 30);
 
         let transition = amount / 30;
         
@@ -283,15 +291,23 @@ function changeDesc(){
 function checkWidth() {
     getScroll(scrollY);
 
-    minScroll = window.innerHeight * 2;
-    // maxScroll = window.innerHeight * 7;
-    scrollGradient = window.innerHeight * 1.5;
+    // minScroll = window.innerHeight * 2;
+    // // maxScroll = window.innerHeight * 7;
+    // maxScroll = window.innerHeight * 3 + 3100;
+    // scrollGradient = window.innerHeight * 1.5;
+    scrollRange()
 
     if (window.innerWidth < 1150) {
         descriptionContainer.style.opacity = "0%";
     } else {
         descriptionContainer.style.opacity = "100%";
     }
+
+
+
+    rotateContainer2.style.scale = Math.min(window.innerWidth / 850, 1)
+
+
 }
 
 window.addEventListener("resize", checkWidth);
