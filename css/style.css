@@ -280,8 +280,8 @@ nav a {
 .imageBox {
     /* border: 1px solid black; */
     border-radius: 20px;
-    width: 240px;
-    height: 100px;
+    width: 320px;
+    height: 180px;
     overflow: hidden;
     box-shadow: 5px 2px 5px rgba(156, 79, 106, 0.363);
     z-index: 100;
