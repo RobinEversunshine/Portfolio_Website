@@ -1,14 +1,27 @@
+
+
+// title animation delay
+const title = document.getElementsByClassName('title');
+
+for(i = 0; i < title.length; i++) {
+    title[i].style.animationDelay = (i * 0.1) + 0.5 + "s";
+}
+
+
+
+
 function lerp(a, b, t) {
 	return a + (b - a) * t;
 }
 
 
+
 const videos = ["videos/anim.mp4", "videos/vfx.mp4", "videos/tech.mp4", "videos/code.mp4", "videos/game.mp4", "videos/Swirling Sand Final.mp4"];
 
 
-// get elements
-const body = document.getElementById("body");
 
+
+// get elements
 const rotateContainer = document.getElementsByClassName("rotateContainer")[0];
 const rotateContainer2 = document.getElementsByClassName("rotateContainer2")[0];
 const rotateContainer3 = document.getElementsByClassName("rotateContainer3")[0];
@@ -58,7 +71,7 @@ let scrollSpeed = 0;
 let scrollAmount = 0;
 
 
-// body.style.height = (projects.length + 1) * 30 * scrollDuration + window.innerHeight * 8 + "px";
+
 
 
 function getScroll(scroll){
@@ -84,7 +97,6 @@ function getScroll(scroll){
     }else{
         rotateContainer.style.transform = `translateY(${scrollAmount}px)`;
     }
-
 
 
 
@@ -146,6 +158,7 @@ function getScroll(scroll){
 
     // index change, then update rotate boxes, change background video, and change description
     if (lastIndex != currentIndex){
+        console.log(currentIndex);
         rotate(transitionList);
         changeVideo();
         changeDesc();
@@ -229,7 +242,7 @@ function rotate(transitionList){
 }
 
 
-
+// change video opacity between different rotate boxes
 function changeVideo(){
     if (videoSwitch == 2){
         video1Source.src = videos[currentIndex];
@@ -249,21 +262,23 @@ function changeVideo(){
 } 
 
 
-
+// change description opacity between different rotate boxes
 function changeDesc(){
-    for (let i = 0; i < descriptionBoxes.length; i++){
-        if (i == currentIndex){
-            descriptionBoxes[i].style.opacity = "100%";
-        }else{
-            descriptionBoxes[i].style.opacity = "0%";
+    if (currentIndex >= 0 && currentIndex < descriptionBoxes.length){
+        descriptionBoxes[currentIndex].style.opacity = "100%";
+        if (lastIndex >= 0 && lastIndex < descriptionBoxes.length){
+            descriptionBoxes[lastIndex].style.opacity = "0%";
         }
     }
+
+    // for (let i = 0; i < descriptionBoxes.length; i++){
+    //     if (i == currentIndex){
+    //         descriptionBoxes[i].style.opacity = "100%";
+    //     }else{
+    //         descriptionBoxes[i].style.opacity = "0%";
+    //     }
+    // }
 }
-// function fixBlock(){
-//     const block = document.getElementById("projBlock");
-//     const blockOffsetTop = block.offsetTop;
-//     console.log(blockOffsetTop);
-// }
 
 
 
@@ -290,11 +305,6 @@ function changeDesc(){
 // hide description when window width is small
 function checkWidth() {
     getScroll(scrollY);
-
-    // minScroll = window.innerHeight * 2;
-    // // maxScroll = window.innerHeight * 7;
-    // maxScroll = window.innerHeight * 3 + 3100;
-    // scrollGradient = window.innerHeight * 1.5;
     scrollRange()
 
     if (window.innerWidth < 1150) {
@@ -306,20 +316,13 @@ function checkWidth() {
 
 
     rotateContainer2.style.scale = Math.min(window.innerWidth / 850, 1)
-
-
 }
 
 window.addEventListener("resize", checkWidth);
 
 
 
-// title animation delay
-const title = document.getElementsByClassName('title');
 
-for(i = 0; i < title.length; i++) {
-    title[i].style.animationDelay = (i * 0.1) + 0.5 + "s";
-}
 
 
 
@@ -344,5 +347,12 @@ lenis.on('scroll', ({ scroll }) => {
 });
 
 
+// initial check
 getScroll(scrollY);
 checkWidth()
+
+
+
+
+
+

@@ -16,6 +16,12 @@
     <title>Who is Robin Cai?</title>
     <link rel="icon" href="https://i.imgs.ovh/2025/02/12/4x4d.png" type="image/png">
     <link rel="stylesheet" href="css/style.css" />
+
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    
     <style>
 
         /* 标尺容器 */
@@ -58,22 +64,22 @@
     </style>
 </head>
 
-<body id="body">
-    <!-- <div class="main"> -->
-
-        <nav>
+<body data-barba="wrapper" data-barba-namespace="home">
+    <nav>
+        <a class="link" href="index.html">
             <p class="upTitleText">Robin's Site</p>
+        </a>
 
-            <p style="flex:1;">&nbsp;</p>
+        <p style="flex:1;">&nbsp;</p>
 
-            <a href="https://www.youtube.com/@Eversunshine/">Youtube</a>
-            <a href="https://www.linkedin.com/in/xinyu-robin-cai/">Linkedin</a>
-            <a href="https://www.artstation.com/robin_eversunshine">Artstation</a>
-            <a href="https://github.com/RobinEversunshine">GitHub</a>
-        </nav>
+        <a class="upTitleLink" href="https://www.youtube.com/@Eversunshine/">Youtube</a>
+        <a class="upTitleLink" href="https://www.linkedin.com/in/xinyu-robin-cai/">Linkedin</a>
+        <a class="upTitleLink" href="https://www.artstation.com/robin_eversunshine">Artstation</a>
+        <a class="upTitleLink" href="https://github.com/RobinEversunshine">GitHub</a>
+    </nav>
 
-
-        <div class="titleContainer">
+    <div class="main" data-barba="container">
+        <div id="title" class="titleContainer">
             <div style="display: flex;
             align-items: center;
             overflow: hidden;">
@@ -87,7 +93,7 @@
 
 
         <div style="
-        border: 1px solid rgb(255, 0, 0);
+        /* border: 1px solid rgb(255, 0, 0); */
         position: relative;
         width: 100%;
         height: 115vh;
@@ -134,9 +140,14 @@
                                 <div class="line"></div>
                                 <p class="desc">Directed a few 3D short films</p>
                             </div>
-                            <div class="imageBox">
-                                <img src="images/anim.jpg">
-                            </div>
+                            <a class="link" href="projects.html" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/anim.jpg">
+                                    <div class="imageBoxMask">
+                                        <p>The Death Reapers</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -147,11 +158,14 @@
                                 <div class="line"></div>
                                 <p class="desc">Cloth & hair sims, lighting, compositing</p>
                             </div>
-                            <div class="imageBox">
-                                <!-- <a href="https://www.youtube.com/@Eversunshine/"> -->
+                            <a class="link" href="projects.html" target="_self">
+                                <div class="imageBox">
                                     <img src="images/vfx.jpg">
-                                <!-- </a> -->
-                            </div>
+                                    <div class="imageBoxMask">
+                                        <p>Moth to a Candle</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -162,9 +176,14 @@
                                 <div class="line"></div>
                                 <p class="desc">Pipeline, procedural rigging, Vex, Python</p>
                             </div>
-                            <div class="imageBox">
-                                <img src="images/tech.jpg">
-                            </div>
+                            <a class="link" href="projects.html" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/tech.jpg">
+                                    <div class="imageBoxMask">
+                                        <p>The Book Rig</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -175,9 +194,14 @@
                                 <div class="line"></div>
                                 <p class="desc">Mainly using Python to create tools</p>
                             </div>
-                            <div class="imageBox">
-                                <img src="images/code.jpg">
-                            </div>
+                            <a class="link" href="https://github.com/RobinEversunshine" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/code.jpg">
+                                    <div class="imageBoxMask">
+                                        <p>Robin's GitHub</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -188,9 +212,14 @@
                                 <div class="line"></div>
                                 <p class="desc">Godot is my favorite</p>
                             </div>
-                            <div class="imageBox">
-                                <img src="images/game.jpg">
-                            </div>
+                            <a class="link" href="projects.html#hk" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/game.jpg">
+                                    <div class="imageBoxMask">
+                                        <p>Hollow Knight Pixelized</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
 
@@ -201,9 +230,14 @@
                                 <div class="line"></div>
                                 <p class="desc">The site you see now is built by myself!</p>
                             </div>
-                            <div class="imageBox">
-                                <img src="images/web.png">
-                            </div>
+                            <a class="link" href="projects.html" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/web.png">
+                                    <div class="imageBoxMask">
+                                        <p>Moth to a Candle</p>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -270,11 +304,11 @@
         <div class="videoContainer">
             <div class="videoMask"></div>
 
-            <video autoplay loop muted id="video1">
+            <video disablePictureInPicture autoplay loop muted id="video1">
                 <source id="source1" src="videos/anim.mp4" type="video/mp4">
             </video>
 
-            <video style="opacity: 0%;" autoplay loop muted id="video2">
+            <video disablePictureInPicture style="opacity: 0%;" autoplay loop muted id="video2">
                 <source id="source2" src="videos/anim.mp4" type="video/mp4">
             </video>
             
@@ -305,7 +339,7 @@
         <section id="about" class="about">
             <div class="container about-content">
                 <div class="about-image">
-                    <img src="images/piano.png" class="pic">
+                    <img src="images/piano.png">
                 </div>
 
                 <div class="about-text">
@@ -315,12 +349,37 @@
                     <p>I'm also a fast learner, and learning more and more is a lifetime topic to me.</p>
                     <p>Thank you for viewing my site!</p>
 
-                
-                    <a class="first-child wsite-social-item wsite-social-twitter" href="https://twitter.com/Berrylkc" target="_blank" alt="Twitter" aria-label="Twitter"><span class="wsite-social-item-inner"></span></a>
+                    <div class="linkBox">
+                        <a href="https://www.youtube.com/@Eversunshine/" target="_blank" alt="Twitter">
+                            <div class="linkIcon">
+                                <img src="images/icons/youtube.png">
+                            </div>
+                        </a>
 
-                    <a href="https://www.instagram.com/berry_lkc/" target="_blank" alt="Instagram" aria-label="Instagram"><span class="wsite-social-item-inner"></span>
-                        <img style="width: 50px;" src="images/anim.jpg">
-                    </a>
+                        <a href="https://www.linkedin.com/in/xinyu-robin-cai/" target="_blank" alt="Instagram">
+                            <div class="linkIcon">
+                                <img src="images/icons/linkedin.png">
+                            </div>
+                        </a>
+
+                        <a href="https://www.artstation.com/robin_eversunshine" target="_blank" alt="Instagram">
+                            <div class="linkIcon">
+                                <img src="images/icons/artstation.png">
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/RobinEversunshine" target="_blank" alt="Instagram">
+                            <div class="linkIcon">
+                                <img src="images/icons/github.png">
+                            </div>
+                        </a>
+
+                        <a href="mailto:robinrainup@gmail.com" target="_blank" alt="Instagram">
+                            <div class="linkIcon">
+                                <img src="images/icons/email.png">
+                            </div>
+                        </a>
+                    </div>
 
                 </div>
 
@@ -340,14 +399,18 @@
 
 
 
-        <script src="https://unpkg.com/@studio-freight/lenis"></script>
-        <script src="js/index.js"></script>
         
-    <!-- </div> -->
+        
+        <script src="js/index.js"></script>
+    </div>
 
+    <script src="js/transitioning.js"></script>
+    
+    
+    
     
     <!-- 标尺容器 -->
-    <div class="ruler" id="ruler"></div>
+    <!-- <div class="ruler" id="ruler"></div> -->
     <!-- <div style="
         border: 1px solid rgb(115, 0, 255);
         position: absolute;
@@ -358,7 +421,7 @@
         ">
     </div> -->
 
-    <script>
+    <!-- <script>
         function createRuler() {
             const ruler = document.getElementById("ruler");
             ruler.innerHTML = ""; // 清空之前的内容
@@ -382,7 +445,7 @@
         
         // 当窗口大小改变时，重新生成标尺
         // window.addEventListener("resize", createRuler);
-    </script>
+    </script> -->
 
 
 </body>

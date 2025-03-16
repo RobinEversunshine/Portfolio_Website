@@ -2,111 +2,318 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projects | Robin Cai</title>
     <link rel="icon" href="https://i.imgs.ovh/2025/02/12/4x4d.png" type="image/png">
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/projectStyle.css" />
-
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"> -->
     
 
-
-    <style>
-        * {
-            /* border: 1px solid black; */
-        }
-    </style>
-
-
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <!-- <script src="js/transitioning.js"></script> -->
 </head>
 
 
-<body>
-    
+<body data-barba="wrapper">
     <nav>
-        <p class="upTitleText">Robin's Site</p>
+        <a class="link" href="index.html#title">
+            <p class="upTitleText">Robin's Site</p>
+        </a>
 
         <p style="flex:1;">&nbsp;</p>
 
-        <a href="https://www.youtube.com/@Eversunshine/">Youtube</a>
-        <a href="https://www.linkedin.com/in/xinyu-robin-cai/">Linkedin</a>
-        <a href="https://www.artstation.com/robin_eversunshine">Artstation</a>
-        <a href="https://github.com/RobinEversunshine">GitHub</a>
+        <a class="upTitleLink" href="https://www.youtube.com/@Eversunshine/">Youtube</a>
+        <a class="upTitleLink" href="https://www.linkedin.com/in/xinyu-robin-cai/">Linkedin</a>
+        <a class="upTitleLink" href="https://www.artstation.com/robin_eversunshine">Artstation</a>
+        <a class="upTitleLink" href="https://github.com/RobinEversunshine">GitHub</a>
     </nav>
 
-    <!-- <div style="height: 30vh;border: 1px solid rgb(0, 0, 0);"></div> -->
-    <div class="projectInterface">
-        
+    <div class="main"  data-barba="container" data-barba-namespace="about">
+        <link rel="stylesheet" href="css/projectStyle.css" />
+        <div class="bgCanvas">
+            <div class="dots">
 
-
-        <div class="projectScroll">
-            <!-- <div style="height: 40vh;border: 1px solid rgb(0, 0, 0);"></div> -->
-            <div class="projectScrollElement">
-                <div class="imageBoxPrj">
-                    <img src="images/anim.jpg">
+                <div class="dotBox">
+                    <svg>
+                        <circle class="dot"/>
+                    </svg>
+                    <h3>Moth to a Candle</h3>
                 </div>
 
+                <!-- <div class="dotBox">
+                    <svg>
+                        <circle class="dot"/>
+                    </svg>
+                    <h3>To the Moon</h3>
+                </div> -->
 
-                <div class="imageBoxPrj">
-                    <img src="images/anim.jpg">
+                <!-- <div class="dotBox">
+                    <svg>
+                        <circle class="dot"/>
+                    </svg>
+                    <h3>Swirling Sand</h3>
                 </div>
 
-                <div class="imageBoxPrj">
-                    <img src="images/anim.jpg">
-                </div>
-            </div>
-
-            <div class="projectScrollElement">
-                <div class="imageBoxPrj">
-                    <img src="images/anim.jpg">
+                <div class="dotBox">
+                    <svg>
+                        <circle class="dot"/>
+                    </svg>
+                    <h3>The Book Rig</h3>
                 </div>
 
+                <div class="dotBox">
+                    <svg>
+                        <circle class="dot"/>
+                    </svg>
+                    <h3>The Death Reapers</h3>
+                </div> -->
 
-                <div class="imageBoxPrj">
-                    <img src="images/anim.jpg">
+                <div class="dotBox">
+                    <svg>
+                        <circle class="dot"/>
+                    </svg>
+                    <h3>Hollow Knight Pixelized</h3>
                 </div>
 
-                <div class="imageBoxPrj">
-                    <img src="images/anim.jpg">
+                <div class="dotBox">
+                    <svg>
+                        <circle class="dot"/>
+                    </svg>
+                    <h3>Arts 2023-2025</h3>
+                </div>
+
+                <div class="dotBox">
+                    <svg>
+                        <circle class="dot"/>
+                    </svg>
+                    <h3>Arts 2022</h3>
+                </div>
+
+                <div class="dotBox">
+                    <svg>
+                        <circle class="dot"/>
+                    </svg>
+                    <h3>Arts 2020-2021</h3>
                 </div>
             </div>
         </div>
 
-        <div style="
-        height: 100vh;
-        width: 500px;
-        border: 1px solid rgb(0, 0, 0);
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        ">
+
+
+        <div class="projectInterface">
+            <div class="projectScroll">
+                <div id="moth" class="projectScrollElement">
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/-1.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/-1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/0.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/0.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/1.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/2.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/3.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/4.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/5.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/5.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/6.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/6.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/7.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/7.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/7-2.webp">
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/8.webp">
+                        <img src="images/moth/7.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/8.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/moth/9.webp">
+                        <img src="images/moth/7.webp">
+                        <video autoplay loop muted>
+                            <source src="images/moth/9.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+                <div id="hk" class="projectScrollElement">
+                    <div class="imageBoxPrj">
+                        <img src="images/hk/1.jpg">
+                        <video autoplay loop muted>
+                            <source src="images/hk/1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/hk/2.jpg">
+                        <video autoplay loop muted>
+                            <source src="images/hk/2.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/hk/3.jpg">
+                        <video autoplay loop muted>
+                            <source src="images/hk/3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/hk/4.jpg">
+                        <video autoplay loop muted>
+                            <source src="images/hk/4.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/hk/5.jpg">
+                        <video autoplay loop muted>
+                            <source src="images/hk/5.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/hk/6.jpg">
+                        <video autoplay loop muted>
+                            <source src="images/hk/6.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/hk/7.jpg">
+                        <video autoplay loop muted>
+                            <source src="images/hk/7.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/hk/8.jpg">
+                        <video autoplay loop muted>
+                            <source src="images/hk/8.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/hk/9.jpg">
+                        <video autoplay loop muted>
+                            <source src="images/hk/9.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+
+
+                <!-- <div class="projectScrollElement">
+                    <div class="imageBoxPrj">
+                        <img src="images/piano.png">
+                    </div>
+
+
+                    <div class="imageBoxPrj">
+                        <img src="images/code.jpg">
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/game.jpg">
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/vfx.jpg">
+                    </div>
+
+                    <div class="imageBoxPrj">
+                        <img src="images/tech.jpg">
+                    </div>
+
+                </div> -->
+
+                <div id="art2023" class="projectScrollElement"></div>
+                <div id="art2022" class="projectScrollElement"></div>
+                <div id="art2020" class="projectScrollElement"></div>
+            </div>
+
+
             <div style="
-            position: fixed;
-            /* width: 100%; */
-            border: 1px solid rgb(106, 255, 250);
+            height: 100vh;
+            width: 50vw;
 
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             ">
-                <div class="imageBoxPrjBig">
-                    <img src="images/anim.jpg">
+                <div class="imageBoxContainer">
+                    <div class="imageBoxPrjBig">
+                        <img src="images/code.jpg">
+                    </div>
+
+                    <div class="imageBoxPrjBig" style="background-color: transparent;">
+                        <video autoplay loop muted>
+                            <source id="source1" src="videos/anim.mp4" type="video/mp4">
+                        </video>
+                    </div>
                 </div>
-
             </div>
+
         </div>
-
+        
+        <script src="js/project.js"></script>
     </div>
-
-
-
-
-
-
-    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script src="js/transitioning.js"></script>
+    
+    
 </body>
 </html>
