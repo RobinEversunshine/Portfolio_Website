@@ -357,14 +357,14 @@ checkWidth()
 
 
 function removeAllEvent() {
-    const project = projects[currentIndex];
-    const projBox = project.getElementsByClassName("projectBox")[0];
-    const imageBox = project.getElementsByClassName("imageBox")[0];
+    // const project = projects[currentIndex];
+    // const projBox = project.getElementsByClassName("projectBox")[0];
+    // const imageBox = project.getElementsByClassName("imageBox")[0];
     
-    projBox.style.translate = "-20px 0";
-    projBox.style.width = "400px";
-    imageBox.style.width = "80px";
-    imageBox.style.height = "80px";
+    // projBox.style.translate = "-20px 0";
+    // projBox.style.width = "400px";
+    // imageBox.style.width = "80px";
+    // imageBox.style.height = "80px";
 
 
     window.removeEventListener("resize", checkWidth);

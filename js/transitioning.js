@@ -5,15 +5,15 @@ gsap.fromTo(".main", { opacity: 0}, { opacity: 1, duration: 1,  onComplete: () =
 }}, "+=0.3");
 
 
-if (localStorage.getItem("transitioning") == "true") {
-    localStorage.setItem("transitioning", "false");
-} else {
+// if (localStorage.getItem("transitioning") == "true") {
+//     localStorage.setItem("transitioning", "false");
+// } else {
     gsap.fromTo("nav", { opacity: 0}, { opacity: 1, duration: 1 });
-}
+// }
 
 // store current path
 localStorage.setItem("path", window.location.pathname)
-localStorage.setItem("hash", window.location.hash);
+
 
 
 // // fade out
@@ -35,22 +35,27 @@ localStorage.setItem("hash", window.location.hash);
 //     });
 // }
 
+let hash;
+
+document.addEventListener("click", (event) => {
+    let link = event.target.closest("a");
+    if (link && link.hash) {
+        hash = link.hash;
+    }
+});
 
 
 
-
-// const links = document.querySelectorAll("a");
-
-// for (const link of links){
-//     link.addEventListener("click", function(event) {
-//         // event.preventDefault();
-//         const href = link.getAttribute("href");
-//         console.log(href);
-//         const url = new URL(href);
-//         const hash = url.hash; // 例如 #section2
-//         console.log(hash);
-//     });
-// }
+function jumpToHash() {
+    const target = document.querySelector(hash);
+    if (target) {
+        let offset = target.getBoundingClientRect().top + window.scrollY;
+        // if (localStorage.getItem("path").includes("projects")){
+            offset -= window.innerHeight / 2;
+        // }
+        window.scrollTo({ top: offset});
+    }
+}
 
 
 
@@ -62,6 +67,7 @@ async function loadData(next) {
         setTimeout(() => {
             // console.log("数据已加载！");
             executeExternalScripts(next.container);
+            jumpToHash()
             // window.dispatchEvent(new Event("DOMContentLoaded"));
             resolve();
         }, 100);
@@ -139,45 +145,10 @@ barba.init({
         
         async beforeEnter({ next }) {
             next.container.style.opacity = 0;
-
-            // const url = new URL(next.url.href);
-            // const hash = url.hash; // 例如 #section2
-            // console.log(hash);
-
-            // if (hash) {
-            //     // setTimeout(() => {
-            //         const target = document.querySelector(hash);
-            //         if (target) {
-            //             const offset = target.getBoundingClientRect().top + window.scrollY;
-            //             window.scrollTo({ top: offset, behavior: "smooth" });
-            //         }
-            //     // }, 300);
-            // }
-
-            // console.log("开始加载...");
             await loadData(next);
-            // const hash = window.location.hash;
         },
 
         enter({ next }) {
-            // if (localStorage.getItem("path").includes("projects")){
-            //     // dots fade in animation
-            //     const dotBoxes = current.container.querySelectorAll(".dotBox");
-            //     const initRotation = dotBoxes.length / 2 * -6 + 3;
-
-            //     const tl = gsap.timeline();
-                
-            //     let i = 0;
-            //     for(const box of dotBoxes){
-            //         tl.to(box, { opacity: 0, rotate: initRotation + 6 + i * 6 + "deg", duration: 0.3 }, i * 0.1);
-            //         console.log(initRotation);
-            //         i += 1;
-            //     }
-                
-            // }
-
-
-
             return gsap.fromTo(next.container, { opacity: 0}, { opacity: 1, duration: 0.5 })
         }
         ,
@@ -188,13 +159,9 @@ barba.init({
             }, 10);
 
             localStorage.setItem("path", window.location.pathname);
-            localStorage.setItem("hash", window.location.hash);
         }
     }]
 });
-
-
-
 
 
 
