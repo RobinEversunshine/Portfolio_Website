@@ -108,7 +108,7 @@ function getScroll(){
         rotateContainer3.style.opacity = "0%";
     }else{
         videoContainer.style.opacity = "100%";
-        if (window.innerWidth > minScroll * 0.9) {
+        if (window.innerWidth > 1150) {
             descriptionContainer.style.opacity = "100%";
         }
         rotateContainer3.style.opacity = "100%";
