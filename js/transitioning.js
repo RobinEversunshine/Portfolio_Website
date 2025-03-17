@@ -51,7 +51,7 @@ function jumpToHash() {
     if (target) {
         let offset = target.getBoundingClientRect().top + window.scrollY;
         // if (localStorage.getItem("path").includes("projects")){
-            offset -= window.innerHeight / 2;
+            offset -= window.innerHeight * 0.45;
         // }
         window.scrollTo({ top: offset});
     }
