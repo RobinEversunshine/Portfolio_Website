@@ -81,6 +81,7 @@ const videos = document.querySelectorAll("video");
 function disablePIP() {
     videos.forEach((vid) => {
         vid.disablePictureInPicture = true;
+        vid.play();
     })
 }
 
@@ -217,13 +218,14 @@ function checkWidth() {
 
 
 
-
+//////////////////////////////////////////////////////////////////
 
 
 
 
 
 function onCreate() {
+    console.log("on create");
     // initial update
     gsap.to(".imageBoxContainer", {opacity: 1, duration: 1 });
     gsap.to(".bgCanvas", {opacity: 1, duration: 0.5 });
@@ -269,38 +271,36 @@ function onUpdate() {
     });
 
 
-    addEventListener("DOMContentLoaded", (event) => {
-        console.log(window.location.pathname);
-        if (window.location.pathname.includes("projects")){
-            onCreate();
-            console.log("on create");
-        }
-    });
+    // addEventListener("DOMContentLoaded", (event) => {
+    //     if (window.location.pathname.includes("projects")){
+    //         onCreate();
+    //     }
+    // });
 }
 
 
-
+onCreate();
 onUpdate();
 
 
 
 
-// lenis
-const lenis = new Lenis({
-    duration: 1.2, // 过渡时间（秒）
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // 缓动函数
-    smooth: true // 开启平滑滚动
-});
 
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
+
+
+
+
+
+
+function removeAllEvent() {
+    window.removeEventListener("scroll", getCenterClass);
+    window.removeEventListener("scroll", getCenterElement);
+    window.removeEventListener("resize", checkWidth);
 }
 
-requestAnimationFrame(raf);
 
+const links = document.querySelectorAll("a");
 
-
-
-
-
+for (const link of links){
+    link.addEventListener("click", removeAllEvent);
+}

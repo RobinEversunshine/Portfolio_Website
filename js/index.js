@@ -74,8 +74,9 @@ let scrollAmount = 0;
 
 
 
-function getScroll(scroll){
+function getScroll(){
     // video parallel movement
+    const scroll = window.scrollY;
     videoContainer.style.transform = `translateY(${scroll * 0.85 + window.innerHeight * 0.25}px)`;
 
 
@@ -122,7 +123,6 @@ function getScroll(scroll){
 
 
     // get scroll value
-    // console.log(scroll);
     let scrollValue = scroll - window.innerHeight * 2;
     scrollValue = -scrollValue / scrollDuration + 25;
     scrollValue = Math.floor(scrollValue / 30) * 30;
@@ -254,7 +254,7 @@ function changeVideo(){
     }else if (videoSwitch == 1){
         video2Source.src = videos[currentIndex];
         video2.load();
-        video1.play();
+        video2.play();
         video1.style.opacity = "0%"; 
         video2.style.opacity = "100%";
         videoSwitch = 2;
@@ -304,7 +304,7 @@ function changeDesc(){
 
 // hide description when window width is small
 function checkWidth() {
-    getScroll(scrollY);
+    getScroll();
     scrollRange()
 
     if (window.innerWidth < 1150) {
@@ -319,6 +319,9 @@ function checkWidth() {
 }
 
 window.addEventListener("resize", checkWidth);
+// window.addEventListener("scroll", getScroll);
+
+
 
 
 
@@ -341,18 +344,39 @@ function raf(time) {
 requestAnimationFrame(raf);
 
 
+lenis.on("scroll", getScroll);
 
-lenis.on('scroll', ({ scroll }) => {
-    getScroll(scroll);
-});
+
 
 
 // initial check
-getScroll(scrollY);
+getScroll();
 checkWidth()
 
 
 
 
+function removeAllEvent() {
+    const project = projects[currentIndex];
+    const projBox = project.getElementsByClassName("projectBox")[0];
+    const imageBox = project.getElementsByClassName("imageBox")[0];
+    
+    projBox.style.translate = "-20px 0";
+    projBox.style.width = "400px";
+    imageBox.style.width = "80px";
+    imageBox.style.height = "80px";
+
+
+    window.removeEventListener("resize", checkWidth);
+    // window.removeEventListener("scroll", getScroll);
+    lenis.off("scroll", getScroll);
+}
+
+
+const links = document.querySelectorAll("a");
+
+for (const link of links){
+    link.addEventListener("click", removeAllEvent);
+}
 
 
