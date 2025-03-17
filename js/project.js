@@ -25,6 +25,7 @@ function createCards() {
         
         img.src = `images/art/2023-2025/${fileName}`;
         img.alt = fileName;
+        img.loading = "lazy";
 
         div.appendChild(img);
     });
@@ -35,6 +36,7 @@ function createCards() {
         artContainer2022.appendChild(div);
 
         const img = document.createElement("img");
+        img.loading = "lazy";
         
         img.src = `images/art/2022/${fileName}`;
         img.alt = fileName;
@@ -48,6 +50,7 @@ function createCards() {
         artContainer2020.appendChild(div);
 
         const img = document.createElement("img");
+        img.loading = "lazy";
         
         img.src = `images/art/2020-2021/${fileName}`;
         img.alt = fileName;
