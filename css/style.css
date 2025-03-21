@@ -84,10 +84,16 @@ body {
 }
 
 
+a {
+    text-decoration: none;
+}
+
+
 
 .main {
     width: 100%;
     height: 100%;
+    /* max-width: var(--maxWidth); */
     /* opacity: 0; */
 
 
@@ -107,6 +113,7 @@ nav {
     padding-left: 30px;
     padding-right: 30px;
     z-index: 10;
+    pointer-events: none;
 
     display: flex;
     flex-direction: row;
@@ -119,9 +126,7 @@ nav {
     /* padding-left: 20px; */
 }
 
-nav a {
-    text-decoration: none;
-}
+
 
 .upTitleLink {
     /* color:black; */
@@ -129,7 +134,15 @@ nav a {
     padding-right:10px;
     text-decoration: none;
     font-size: 15px;
+    pointer-events: auto;
 }
+
+.link {
+    pointer-events: auto;
+}
+
+
+
 
 @media screen and (max-width: 520px) {
     .upTitleText {

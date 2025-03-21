@@ -2,7 +2,7 @@
 
 gsap.fromTo(".main", { opacity: 0}, { opacity: 1, duration: 1,  onComplete: () => {
     document.getElementsByClassName("main")[0].style.transform = "none";
-}}, "+=0.3");
+}}, "+=0.1");
 
 
 // if (localStorage.getItem("transitioning") == "true") {
@@ -49,9 +49,8 @@ document.addEventListener("click", (event) => {
 function jumpToHash() {
     const target = document.querySelector(hash);
     if (target) {
-        let offset = target.getBoundingClientRect().top + window.scrollY;
-        // if (localStorage.getItem("path").includes("projects")){
-            offset -= window.innerHeight * 0.45;
+        const rect = target.getBoundingClientRect();
+        const offset = rect.top + window.scrollY - window.innerHeight / 2 + rect.height / 2;
         // }
         window.scrollTo({ top: offset});
     }
