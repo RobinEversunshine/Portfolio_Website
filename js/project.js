@@ -456,7 +456,7 @@ function removeAllEvent() {
 document.addEventListener("click", (event) => {
     const link = event.target.closest("a");
 
-    if (link && !link.href.includes("projects")) {
+    if (link && link.href.includes("index")) {
         removeAllEvent();
     }
 });
