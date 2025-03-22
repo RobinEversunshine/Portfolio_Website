@@ -339,11 +339,35 @@ function removeAllEvent() {
     window.removeEventListener("resize", checkWidth);
     // window.removeEventListener("scroll", getScroll);
     lenis.off("scroll", getScroll);
+    document.removeEventListener("click", smoothJump);
 }
 
 
-const links = document.querySelectorAll("a");
+document.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
 
-for (const link of links){
-    link.addEventListener("click", removeAllEvent);
+    if (link && !link.href.includes("index")) {
+        removeAllEvent();
+    }
+});
+
+
+
+// smooth jump to destination when clicking local links
+function smoothJump(event) {
+    const link = event.target.closest("a");
+    
+    if (link && link.href.includes("index") && link.hash) {
+        event.preventDefault();
+        const target = document.querySelector(link.hash);
+
+        if (target) {
+            const rect = target.getBoundingClientRect();
+            const offset = rect.top + window.scrollY;
+
+            window.scrollTo({ top: offset, behavior: "smooth" });
+        }
+    }
 }
+
+document.addEventListener("click", smoothJump);

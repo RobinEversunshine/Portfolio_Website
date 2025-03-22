@@ -322,7 +322,6 @@ function checkWidth() {
     }
     
     const rect = imageBoxContainer.parentElement.getBoundingClientRect();
-    console.log(rect.width);
     imageBoxContainer.style.width = rect.width + "px";
 }
 
