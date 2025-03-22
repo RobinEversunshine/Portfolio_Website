@@ -93,8 +93,6 @@ const videos = document.querySelectorAll("video");
 function disablePIP() {
     videos.forEach((vid) => {
         vid.disablePictureInPicture = true;
-
-        // vid.play();
     })
 }
 
@@ -191,7 +189,7 @@ function activeDots() {
 
 // if thumbnail on center, activate it
 const scrollItems = document.getElementsByClassName("imageBoxPrj");
-const projTitle = document.getElementById("projTitle");
+const projTitle = document.getElementsByClassName("projTitle")[0];
 
 let currentElement = null;
 let lastElement = null;
@@ -211,14 +209,32 @@ function getCenterElement() {
     let closest = null;
     let minDiff = Infinity;
     let title = "";
+    let titleLink = "";
+
+
+    function changeTitle(input){
+        const curTitle = input.dataset.title;
+        const curTitleLink = input.dataset.link;
+
+        if (curTitle){
+            title = curTitle;
+            titleLink = curTitleLink;
+        }
+
+        if (curTitle == "None") {
+            title = "";
+            titleLink = "";
+        }
+    }
+
 
     for(const item of scrollItems){
         const rect = item.getBoundingClientRect();
         
-        const curTitle = item.dataset.title;
+        // const curTitle = item.dataset.title;
 
         if (rect.top < 0) {
-            title = changeTitle(curTitle, title);
+            changeTitle(item);
             continue;
         }
 
@@ -233,7 +249,7 @@ function getCenterElement() {
         if (diff < minDiff) {
             minDiff = diff;
             closest = item;
-            title = changeTitle(curTitle, title);
+            changeTitle(item);
         }
     }
 
@@ -242,7 +258,15 @@ function getCenterElement() {
         if (lastElement != currentElement){
             if (lastElement) lastElement.classList.remove("active");
             currentElement.classList.add("active");
+
             projTitle.textContent = title;
+            projTitle.href = titleLink;
+            if (titleLink){
+                projTitle.style.pointerEvents = "auto";
+            }else{
+                projTitle.style.pointerEvents = "none";
+            }
+
 
             changeImageVideo(currentElement);
 
@@ -281,15 +305,25 @@ function changeImageVideo(element) {
 }
 
 
-// hide description when window width is small
+
+const dots = document.getElementsByClassName("dots")[0];
+const imageBoxContainer = document.getElementsByClassName("imageBoxContainer")[0];
+
+// hide dots when window width is small
 function checkWidth() {
     viewportCenter = window.innerHeight / 2;
 
     if (window.innerWidth < 1300) {
         gsap.to(".bgCanvas", {opacity: 0, duration: 0.5 });
+        dots.style.pointerEvents = "none";
     } else {
         gsap.to(".bgCanvas", {opacity: 1, duration: 0.5 });
+        dots.style.pointerEvents = "auto";
     }
+    
+    const rect = imageBoxContainer.parentElement.getBoundingClientRect();
+    console.log(rect.width);
+    imageBoxContainer.style.width = rect.width + "px";
 }
 
 

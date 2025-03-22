@@ -20,54 +20,12 @@
     <script src="https://unpkg.com/@studio-freight/lenis"></script>
     <script src="https://unpkg.com/@barba/core"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    
-    
-    <style>
-
-        /* 标尺容器 */
-        .ruler {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            /* height: 100vh; */
-            background-color: #f0f0f0;
-            border-right: 2px solid #ccc;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            color: #333;
-            /* padding-top: 10px; */
-            z-index: -10;
-
-            opacity: 0;
-        }
-
-        /* 刻度线 */
-        .tick {
-            width: 70px;
-            /* background-color: #33333337; */
-            /* border-top: 1px solid #999; */
-            text-align: center;
-            /* padding-top: 2px; */
-            position: relative;
-        }
-
-        /* 主要刻度 */
-        .tick.major {
-            background-color: #33333321;
-            /* border-top: 2px solid #666; */
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body data-barba="wrapper" data-barba-namespace="home">
     <nav>
-        <a class="link" href="index.html#title">
-            <p class="upTitleText">Robin's Site</p>
+        <a class="homeLink" href="index.html#title">
+            <p>Robin's Site</p>
         </a>
 
         <p style="flex:1;">&nbsp;</p>
@@ -97,7 +55,6 @@
         position: relative;
         width: 100%;
         height: 115vh;
-        /* top: 80vh; */
         font-size: 30px;
 
         display: flex;
@@ -232,7 +189,7 @@
                             </div>
                             <a class="link" href="https://github.com/RobinEversunshine/Portfolio_Website" target="_self">
                                 <div class="imageBox">
-                                    <img src="images/web.png">
+                                    <img src="images/web.webp">
                                     <div class="imageBoxMask">
                                         <p>Source Code of This Site</p>
                                     </div>
@@ -305,7 +262,7 @@
             <div class="videoMask"></div>
 
             <video disablePictureInPicture autoplay loop muted id="video1">
-                <source id="source1" src="" type="video/mp4">
+                <source id="source1" src="videos/anim.mp4" type="video/mp4">
             </video>
 
             <video disablePictureInPicture style="opacity: 0%;" autoplay loop muted id="video2">
@@ -316,7 +273,6 @@
 
         <div style="
         /* border: 1px solid rgb(115, 0, 255); */
-        /* position: absolute; */
         height: 95vh; 
         width: 100%;
         z-index: -10;
@@ -325,8 +281,6 @@
 
         <div style="
         /* border: 1px solid rgb(115, 0, 255); */
-        /* position: absolute; */
-        /* top: 95vh;  */
         height: 4100px;
         width: 100%;
         z-index: -10;
@@ -344,10 +298,19 @@
 
                 <div class="about-text">
                     <h2 class="section-title">About Me</h2>
-                    <p>Exploring into the world of 3D has always been a passion to me. I like collecting information and knowledges, figuring out how to achieve something really tricky and find out solutions. Every time I figure out the answer, it's just like a Eureka moment and can really make me fulfilled.</p>
-                    <p>Currently I'm working as a volunteer VFX artist in Crash Landing Studio, where I manipulate nodes and codes in Houdini and build seamless pipelines between Blender and that.</p>
-                    <p>I'm also a fast learner, and learning more and more is a lifetime topic to me.</p>
-                    <p>Thank you for viewing my site!</p>
+                    <p>
+                        Exploring into the world of 3D has always been a passion to me. I like collecting information and knowledges, figuring out how to achieve something really tricky and find out solutions. Every time I figure out the answer, it's just like a Eureka moment and can really make me fulfilled.
+                    </p>
+                    <p>
+                        Currently I'm working as a volunteer VFX artist in Crash Landing Studio, where I manipulate nodes and codes in Houdini and build seamless pipelines between Blender and that.
+
+                    </p>
+                    <p>
+                        I'm also a fast learner, and learning more and more is a lifetime topic to me.
+                    </p>
+                    <p>
+                        Thank you for viewing my site!
+                    </p>
 
                     <div class="linkBox">
                         <a href="https://www.youtube.com/@Eversunshine/" target="_blank" alt="Twitter">
@@ -387,67 +350,19 @@
             </div>
         </section>
 
-        <!-- <div style="
-        border: 1px solid rgb(0, 226, 83);
-        /* position: absolute; */
-        /* top: 210vh;  */
-        height: 500px;
-        width: 100%;
+        <div style="
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
         ">
-
-        </div> -->
-
-
-
-        
-        
+            <p>
+                © 2025 Powered by Robin Cai
+            </p>
+        </div>
         <script src="js/index.js"></script>
     </div>
-
     <script src="js/transitioning.js"></script>
-    <!-- <script src="js/lenis.js"></script> -->
-    
-    
-    
-    
-    <!-- 标尺容器 -->
-    <!-- <div class="ruler" id="ruler"></div> -->
-    <!-- <div style="
-        border: 1px solid rgb(115, 0, 255);
-        position: absolute;
-        /* top: 210vh;  */
-        top: 0px;
-        height: 3000px;
-        width: 50%;
-        ">
-    </div> -->
-
-    <!-- <script>
-        function createRuler() {
-            const ruler = document.getElementById("ruler");
-            ruler.innerHTML = ""; // 清空之前的内容
-
-            const step = 25; // 每隔 50px 显示刻度
-            const totalHeight = document.body.scrollHeight; // 获取整个页面高度
-            const rulerHeight = window.innerHeight; // 视口高度
-            const count = Math.ceil(totalHeight / step); // 计算需要多少个刻度
-
-            for (let i = 0; i < count; i++) {
-                const tick = document.createElement("div");
-                tick.className = "tick" + (i % 2 === 0 ? " major" : ""); // 每隔 100px 加粗
-                tick.style.height = (step-0) + "px";
-                tick.textContent = i * step;
-                ruler.appendChild(tick);
-            }
-        }
-
-        // 初始化标尺
-        createRuler();
-        
-        // 当窗口大小改变时，重新生成标尺
-        // window.addEventListener("resize", createRuler);
-    </script> -->
-
 
 </body>
 </html>

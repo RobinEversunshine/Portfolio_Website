@@ -13,7 +13,7 @@ a {
 .projectInterface {
     /* border: 1px solid rgb(255, 0, 0); */
     width: 100%;
-    /* max-width: var(--maxWidth); */
+    max-width: var(--maxWidth);
     height: 100%;
     padding-left: 170px;
     padding-right: 20px;
@@ -118,6 +118,7 @@ a {
 .imageBoxContainer {
     position: fixed;
     width: 100%;
+    /* max-width: 60vw; */
     opacity: 0;
     /* border: 1px solid rgb(106, 255, 250); */
 
@@ -133,11 +134,11 @@ a {
 
 .imageBoxPrjBig {
     position: absolute;
-    /* border: 1px solid rgb(123, 0, 255); */
-    width: 50%;
+    width: 100%;
     /* height: 20vh; */
     /* padding: 20px; */
     border: 1px solid var(--bgColor);
+    /* border: 1px solid rgb(123, 0, 255); */
     background-color: var(--bgColor);
     overflow: hidden;
 
@@ -180,15 +181,13 @@ a {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    /* max-width: var(--maxWidth); */
-    left: 0;
+    max-width: var(--maxWidth);
+    /* left: 0; */
     opacity: 0;
-    /* border: 1px solid rgb(255, 0, 0); */
+    /* border: 1px solid rgb(0, 179, 255); */
 
     display: flex;
     align-items: center;
-
-    /* transition: opacity 0.5s ease 0.6s; */
 }
 
 

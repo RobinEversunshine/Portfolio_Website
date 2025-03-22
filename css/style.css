@@ -121,25 +121,33 @@ nav {
     justify-content: space-between;
 }
 
-.upTitleText {
+
+.homeLink {
+    pointer-events: auto;
     font-size: 25px;
-    /* padding-left: 20px; */
+
+    transition: scale 0.2s ease;
+}
+.homeLink:hover {
+    scale: 1.15;
 }
 
 
-
 .upTitleLink {
-    /* color:black; */
     padding-left:10px;
     padding-right:10px;
     text-decoration: none;
     font-size: 15px;
     pointer-events: auto;
+
+    transition: font-size 0.2s ease;
 }
 
-.link {
-    pointer-events: auto;
+.upTitleLink:hover {
+    font-size: 20px;
 }
+
+
 
 
 
@@ -298,11 +306,12 @@ nav {
     position: relative;
     /* border: 1px solid black; */
     border-radius: 20px;
-    width: 320px;
-    height: 180px;
+    width: 80px;
+    height: 80px;
     overflow: hidden;
     box-shadow: 5px 2px 5px rgba(156, 79, 106, 0.363);
     z-index: 100;
+    font-size: 15px;
 
     display: flex;
     justify-content: center;
@@ -310,9 +319,15 @@ nav {
 
     transition: width 1s ease 0.3s,
     height 1s ease 0.1s,
-    transform 0.3s ease;
+    transform 0.3s ease,
+    font-size 0.1s ease;
 }
 
+.imageBox.active {
+    width: 320px;
+    height: 180px;
+    font-size: 20px;
+}
 
 
 
@@ -341,6 +356,7 @@ nav {
     height: 100%;
     background-color: #aa0e3f50;
     opacity: 0;
+    
 
     display: flex;
     justify-content: center;
@@ -351,12 +367,10 @@ nav {
 
 .imageBoxMask:hover {
     opacity: 1;
-
 }
 
 .imageBoxMask p {
     color: white;
-    font-size: 20px;
 }
 
 
@@ -464,6 +478,7 @@ h2 {
 
 section {
     padding: 60px 0;
+    height: 100vh;
     max-width: var(--maxWidth);
 }
 
@@ -478,13 +493,14 @@ section {
 
  /* About Section */
 .about {
-    /* background-color: white; */
+    /* border: 1px solid black; */
     display: flex;
     /* flex-direction: column; */
     align-items: center;
 }
 
 .about-content {
+    /* border: 1px solid rgb(255, 0, 0); */
     display: flex;
     align-items: center;
     gap: 80px;

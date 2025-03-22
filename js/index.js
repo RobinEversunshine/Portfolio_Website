@@ -16,7 +16,7 @@ function lerp(a, b, t) {
 
 
 
-const videos = ["videos/anim.mp4", "videos/vfx.mp4", "videos/tech.mp4", "videos/code.mp4", "videos/game.mp4", "videos/Swirling Sand Final.mp4"];
+const videos = ["videos/anim.mp4", "videos/vfx.mp4", "videos/tech.mp4", "videos/code.mp4", "videos/game.mp4", "videos/web.mp4"];
 
 
 
@@ -29,13 +29,10 @@ const projects = document.getElementsByClassName("rotateBox");
 const iam = document.getElementById("iam");
 
 const descriptionContainer = document.getElementsByClassName("descriptionContainer")[0];
-const descriptionBoxes = descriptionContainer.getElementsByClassName("descriptionBox")
+const descriptionBoxes = descriptionContainer.getElementsByClassName("descriptionBox");
 
 const videoContainer = document.getElementsByClassName("videoContainer")[0];
-const video1 = document.getElementById("video1");
-const video2 = document.getElementById("video2");
-const video1Source = document.getElementById("source1");
-const video2Source = document.getElementById("source2");
+
 
 
 let currentIndex = 0;
@@ -44,7 +41,7 @@ let lastIndex = -2;
 let lastScrollY = window.scrollY;
 let scrollDir = "down";
 
-let videoSwitch = 1;
+
 
 
 let scrollDuration = 20;
@@ -62,7 +59,7 @@ function scrollRange(){
     scrollGradient = window.innerHeight * 1.5;
 }
 
-scrollRange()
+scrollRange();
 
 
 const minSpeed = 0.97;
@@ -158,7 +155,7 @@ function getScroll(){
 
     // index change, then update rotate boxes, change background video, and change description
     if (lastIndex != currentIndex){
-        console.log(currentIndex);
+        // console.log(currentIndex);
         rotate(transitionList);
         changeVideo();
         changeDesc();
@@ -181,7 +178,7 @@ function rotate(transitionList){
 
     let i = 0;
 
-    for (project of projects){
+    for (const project of projects){
         let transition = transitionList[i];
         let transitionAbs = Math.abs(transition);
 
@@ -201,7 +198,7 @@ function rotate(transitionList){
         if (transitionDelay != 0){
             project.style.transition = "rotate 0.5s cubic-bezier(0.8, 0, 0.3, 1.5)" + (Math.abs(transitionDelay) + 0.7) * 0.07 + "s";
         }else{
-            project.style.transition = "rotate 0.5s cubic-bezier(0.7, -1, 0.3, 1.5)"
+            project.style.transition = "rotate 0.5s cubic-bezier(0.7, -1, 0.3, 1.5)";
         }
 
 
@@ -227,13 +224,11 @@ function rotate(transitionList){
         if (transitionAbs == 0){
             projBox.style.translate = "30px 0";
             projBox.style.width = "680px";
-            imageBox.style.width = "320px";
-            imageBox.style.height = "180px";
+            imageBox.classList.add("active");
         }else{
             projBox.style.translate = "-20px 0";
             projBox.style.width = "400px";
-            imageBox.style.width = "80px";
-            imageBox.style.height = "80px";
+            imageBox.classList.remove("active");
         }
 
         i++;
@@ -242,19 +237,30 @@ function rotate(transitionList){
 }
 
 
+
+
+const video1 = document.getElementById("video1");
+const video2 = document.getElementById("video2");
+// const video1Source = document.getElementById("source1");
+const video1Source = document.getElementById("video1").querySelector("source");
+// const video2Source = document.getElementById("source2");
+const video2Source = document.getElementById("video2").querySelector("source");
+
+let videoSwitch = 1;
+
 // change video opacity between different rotate boxes
 function changeVideo(){
     if (videoSwitch == 2){
         video1Source.src = videos[currentIndex];
         video1.load();
-        video1.play();
+        // video1.play();
         video2.style.opacity = "0%";
         video1.style.opacity = "100%";
         videoSwitch = 1;
     }else if (videoSwitch == 1){
         video2Source.src = videos[currentIndex];
         video2.load();
-        video2.play();
+        // video2.play();
         video1.style.opacity = "0%"; 
         video2.style.opacity = "100%";
         videoSwitch = 2;
@@ -270,42 +276,15 @@ function changeDesc(){
             descriptionBoxes[lastIndex].style.opacity = "0%";
         }
     }
-
-    // for (let i = 0; i < descriptionBoxes.length; i++){
-    //     if (i == currentIndex){
-    //         descriptionBoxes[i].style.opacity = "100%";
-    //     }else{
-    //         descriptionBoxes[i].style.opacity = "0%";
-    //     }
-    // }
 }
 
-
-
-// const observer = new IntersectionObserver((entries) => {
-//     entries.forEach(entry => {
-//         if (!entry.isIntersecting) {
-//             stickyBlock.style.position = "fixed";
-//             stickyBlock.style.top = "0vh";
-//             // stickyBlock.style.translate = "0px 0px";
-//             // stickyBlock.classList.add("fixed");
-//         } else {
-//             stickyBlock.style.position = "absolute";
-//             // stickyBlock.style.translate = "0px 90vh";
-//             stickyBlock.style.top = "90vh";
-//             // stickyBlock.classList.remove("fixed");
-//         }
-//     });
-// }, { threshold: 0 });
-
-// observer.observe(stickyMonitor);
 
 
 
 // hide description when window width is small
 function checkWidth() {
     getScroll();
-    scrollRange()
+    scrollRange();
 
     if (window.innerWidth < 1150) {
         descriptionContainer.style.opacity = "0%";
@@ -315,7 +294,7 @@ function checkWidth() {
 
 
 
-    rotateContainer2.style.scale = Math.min(window.innerWidth / 850, 1)
+    rotateContainer2.style.scale = Math.min(window.innerWidth / 850, 1);
 }
 
 window.addEventListener("resize", checkWidth);
@@ -351,22 +330,12 @@ lenis.on("scroll", getScroll);
 
 // initial check
 getScroll();
-checkWidth()
+checkWidth();
 
 
 
 
 function removeAllEvent() {
-    // const project = projects[currentIndex];
-    // const projBox = project.getElementsByClassName("projectBox")[0];
-    // const imageBox = project.getElementsByClassName("imageBox")[0];
-    
-    // projBox.style.translate = "-20px 0";
-    // projBox.style.width = "400px";
-    // imageBox.style.width = "80px";
-    // imageBox.style.height = "80px";
-
-
     window.removeEventListener("resize", checkWidth);
     // window.removeEventListener("scroll", getScroll);
     lenis.off("scroll", getScroll);
@@ -378,5 +347,3 @@ const links = document.querySelectorAll("a");
 for (const link of links){
     link.addEventListener("click", removeAllEvent);
 }
-
-
