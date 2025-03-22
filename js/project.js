@@ -9,7 +9,7 @@ const art2023 = ['250108sugarbell.webp', '241211name_title.webp', '240903mask2.w
 const art2022 = ['221224draft.webp', '221212_2.webp', '221212_1.webp', '221211_2.webp', '221211_1.webp', '221129draft.webp', '221124draft2.webp', '221122draft1.webp', '221118draft.webp', '221117draft3.webp', '221117draft.webp', '221115draft.webp', '221115.webp', '221105draft.webp', '221102.webp', '221029draft.webp', '221022home.webp', '221021draft.webp', '221020calameet.webp', '221019draft.webp', '221013colorscript.webp', '221010draft.webp', '221009_2.webp', '221009_1.webp', '221004.webp', '221003rain.webp', '220907draft~1.webp', '220907draft3.webp', '220907draft.webp', '220906.webp', '220901draft.webp', '220826_3.webp', '220826_2.webp', '220826_1.webp', '220812draft1.webp', '220804draft.webp', '220727draft.webp', '220711draft.webp', '220705draft.webp', '220618draft2.webp', '220618draft.webp', '220607draft.webp', '220604draft.webp', '220601draft2.webp', '220601draft.webp', '220514draft.webp']
 ;
 
-const art2020 = ['210601draft.webp', '210526draft.webp', '210523draft.webp', '210514draft2.webp', '210430alter.webp', '210405draft2.webp', '210405draft.webp', '210325draft2.webp', '210318desert.webp', '210314beach.webp', '210302.webp', '201113draft.webp', '201107.webp', '200919.webp', '200918.webp', '200917.webp', '200916.webp', '200915.webp', '200914.webp', '200830.webp', '200228.webp']
+const art2020 = ['210601draft.webp', '210526draft.webp', '210523draft.webp', '210514draft2.webp', '210430alter.webp', '210405draft2.webp', '210405draft.webp', '210325draft2.webp', '210318desert.webp', '210314beach.webp', '210302.webp', '201113draft.webp', '201107.webp', '200919.webp', '200918.webp', '200917.webp', '200916.webp', '200915.webp', '200914.webp', '200830.webp', '200228.webp', '200225.webp', '200222.webp', '200221.webp', '200220.webp', '200218.webp', '200124.webp', '200121cloud.webp', '200120cloud.webp', '200117.webp', '200114cloud.webp', '200108.webp', '200107.webp', '200103.webp', '191219.webp', '191216.webp', '191214.webp', '191124_2.webp', '191124_1.webp']
 ;
 
 
@@ -21,7 +21,10 @@ function createCards() {
         div.classList.add("imageBoxPrj");
         artContainer2023.appendChild(div);
 
-        if (art2023[0] == fileName) div.id = "a23";
+        if (art2023[0] == fileName) {
+            div.dataset.title = "None";
+            div.id = "a23";
+        }
 
         const img = document.createElement("img");
         
@@ -90,9 +93,31 @@ const videos = document.querySelectorAll("video");
 function disablePIP() {
     videos.forEach((vid) => {
         vid.disablePictureInPicture = true;
-        vid.play();
+        // vid.play();
     })
 }
+
+
+
+
+// pause video when outside of screen, play it when inside
+function videoPlayPause() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.play();
+            } else {
+                entry.target.pause();
+            }
+        });
+    }, { threshold: 0.5 });
+
+    videos.forEach(video => observer.observe(video));
+}
+
+
+
+
 
 
 
@@ -113,19 +138,26 @@ function getCenterClass() {
         i += 1;
         const rect = item.getBoundingClientRect();
 
-        if (rect.top > viewportCenter) {
+        if (rect.bottom < viewportCenter || rect.top > viewportCenter) {
             continue;
-        }
-
-        const diff = Math.abs(rect.top - viewportCenter);
-
-        if (diff < minDiff) {
-            minDiff = diff;
+        }else{
             currentPrj = i;
+            // activeDots()
         }
+
+        // const diff = Math.abs(rect.top - viewportCenter);
+        // if (i==0){
+        // console.log(rect.top);
+        // console.log(rect.bottom);
+        // }
+
+        // if (diff < minDiff) {
+        //     minDiff = diff;
+        //     currentPrj = i;
+        // }
 
         if (lastPrj != currentPrj){
-            activeDots()
+            activeDots();
             lastPrj = currentPrj;
         }
         
@@ -145,29 +177,55 @@ function activeDots() {
 
 
 
+
+
+
+
 // if thumbnail on center, activate it
 const scrollItems = document.getElementsByClassName("imageBoxPrj");
+const projTitle = document.getElementById("projTitle");
 
 let currentElement = null;
 let lastElement = null;
 
+
+function changeTitle(input, title){
+    let output = title;
+    if (input) output = input;
+    if (input == "None") output = "";
+    return output;
+}
+
+
+
+
 function getCenterElement() {
     let closest = null;
     let minDiff = Infinity;
+    let title = "";
 
     for(const item of scrollItems){
         const rect = item.getBoundingClientRect();
         
-        if (rect.top < 0 || rect.top > viewportCenter * 2) {
+        const curTitle = item.dataset.title;
+
+        if (rect.top < 0) {
+            title = changeTitle(curTitle, title);
+            continue;
+        }
+
+        if (rect.top > viewportCenter * 2) {
             continue;
         }
 
         const elementCenter = rect.top + rect.height / 2;
         const diff = Math.abs(elementCenter - viewportCenter);
 
+        // if (curTitle) title = curTitle;
         if (diff < minDiff) {
             minDiff = diff;
             closest = item;
+            title = changeTitle(curTitle, title);
         }
     }
 
@@ -176,6 +234,7 @@ function getCenterElement() {
         if (lastElement != currentElement){
             if (lastElement) lastElement.classList.remove("active");
             currentElement.classList.add("active");
+            projTitle.textContent = title;
 
             changeImageVideo(currentElement);
 
@@ -231,7 +290,7 @@ function checkWidth() {
 
 // smooth jump to destination when clicking local links
 function smoothJump(event) {
-    const link = event.target.closest("a");;
+    const link = event.target.closest("a");
     const imageBox = event.target.closest(".imageBoxPrj");
     
     if (link && link.href.includes("projects") && link.hash) {
@@ -280,6 +339,7 @@ function onCreate() {
     createCards();
 
     disablePIP();
+    videoPlayPause();
 }
 
 
@@ -292,6 +352,7 @@ function onUpdate() {
     //monitor resize
     window.addEventListener("resize", checkWidth);
 
+    document.addEventListener("DOMContentLoaded", videoPlayPause);
     document.addEventListener("click", smoothJump);
 
     // if change to another card, mouse's still in video, then don't pause it
@@ -339,6 +400,7 @@ function removeAllEvent() {
     window.removeEventListener("scroll", getCenterElement);
     window.removeEventListener("resize", checkWidth);
     document.removeEventListener("click", smoothJump);
+    document.removeEventListener("DOMContentLoaded", videoPlayPause);
 }
 
 

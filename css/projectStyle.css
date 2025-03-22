@@ -5,6 +5,10 @@
 }
 
 
+a {
+    text-decoration: none;
+}
+
 
 .projectInterface {
     /* border: 1px solid rgb(255, 0, 0); */
@@ -232,7 +236,7 @@
     white-space: nowrap;
     opacity: 0.15;
 
-    transition: opacity 0.2s ease, font-size 0.2s ease;
+    transition: opacity 0.2s ease 0.1s, font-size 0.2s ease;
 }
 
 .dotBox h3.active {

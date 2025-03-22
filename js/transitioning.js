@@ -1,8 +1,6 @@
 // fade in
 
-gsap.fromTo(".main", { opacity: 0}, { opacity: 1, duration: 1,  onComplete: () => {
-    document.getElementsByClassName("main")[0].style.transform = "none";
-}}, "+=0.1");
+gsap.fromTo(".main", { opacity: 0}, { opacity: 1, duration: 1}, "-=1.5");
 
 
 // if (localStorage.getItem("transitioning") == "true") {
@@ -12,7 +10,7 @@ gsap.fromTo(".main", { opacity: 0}, { opacity: 1, duration: 1,  onComplete: () =
 // }
 
 // store current path
-localStorage.setItem("path", window.location.pathname)
+localStorage.setItem("path", window.location.pathname);
 
 
 
@@ -51,7 +49,6 @@ function jumpToHash() {
     if (target) {
         const rect = target.getBoundingClientRect();
         const offset = rect.top + window.scrollY - window.innerHeight / 2 + rect.height / 2;
-        // }
         window.scrollTo({ top: offset});
     }
 }
@@ -66,7 +63,7 @@ async function loadData(next) {
         setTimeout(() => {
             // console.log("数据已加载！");
             executeExternalScripts(next.container);
-            jumpToHash()
+            jumpToHash();
             // window.dispatchEvent(new Event("DOMContentLoaded"));
             resolve();
         }, 100);
@@ -148,7 +145,7 @@ barba.init({
         },
 
         enter({ next }) {
-            return gsap.fromTo(next.container, { opacity: 0}, { opacity: 1, duration: 0.5 })
+            return gsap.fromTo(next.container, { opacity: 0}, { opacity: 1, duration: 0.5 });
         }
         ,
         afterEnter({ next }) {
