@@ -269,3 +269,23 @@ a {
 .dot:hover {
     fill: var(--mainColor);
 }
+
+
+.projTitle {
+    /* border: 1px solid rgb(64, 0, 255); */
+    position: fixed;
+    bottom: 30px;
+    /* margin: 20px; */
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.projTitle:hover {
+    background-color: var(--mainColor);
+    color: white;
+
+
+}
