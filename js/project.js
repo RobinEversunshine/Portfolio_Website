@@ -93,6 +93,7 @@ const videos = document.querySelectorAll("video");
 function disablePIP() {
     videos.forEach((vid) => {
         vid.disablePictureInPicture = true;
+
         // vid.play();
     })
 }
@@ -104,13 +105,20 @@ function disablePIP() {
 function videoPlayPause() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
+            const video = entry.target;
+            const source = video.querySelector("source");
+
             if (entry.isIntersecting) {
-                entry.target.play();
+                if (!source.src) {
+                    source.src = source.dataset.src;
+                    video.load();
+                }
+                video.play();
             } else {
-                entry.target.pause();
+                video.pause();
             }
         });
-    }, { threshold: 0.5 });
+    }, { threshold: 0 });
 
     videos.forEach(video => observer.observe(video));
 }
