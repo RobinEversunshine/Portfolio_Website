@@ -1,6 +1,6 @@
 // fade in
 
-gsap.fromTo(".main", { opacity: 0}, { opacity: 1, duration: 1}, "-=1.5");
+// gsap.fromTo(".main", { opacity: 0}, { opacity: 1, duration: 1}, "-=1.5");
 
 
 // if (localStorage.getItem("transitioning") == "true") {
