@@ -3,7 +3,7 @@ const artContainer2022 = document.getElementById("art2022");
 const artContainer2020 = document.getElementById("art2020");
 
 
-const art2023 = ['250108sugarbell.webp', '241211name_title.webp', '240903mask2.webp', '240903mask.webp', '240724draft.webp', '240703draft.webp', '240423laywer.png', '240102draft4.webp', '231023draft.webp', '231009draft.webp', '231005draft2.webp', '231005draft.webp', '231003draft.webp', '230530draft.webp', '230330draft2.webp', '230126qrow.webp']
+const art2023 = ['250520draft.webp', '250108sugarbell.webp', '241211name_title.webp', '240903mask2.webp', '240903mask.webp', '240724draft.webp', '240703draft.webp', '240423laywer.png', '240102draft4.webp', '231023draft.webp', '231009draft.webp', '231005draft2.webp', '231005draft.webp', '231003draft.webp', '230530draft.webp', '230330draft2.webp', '230126qrow.webp']
 ;
 
 const art2022 = ['221224draft.webp', '221212_2.webp', '221212_1.webp', '221211_2.webp', '221211_1.webp', '221129draft.webp', '221124draft2.webp', '221122draft1.webp', '221118draft.webp', '221117draft3.webp', '221117draft.webp', '221115draft.webp', '221115.webp', '221105draft.webp', '221102.webp', '221029draft.webp', '221022home.webp', '221021draft.webp', '221020calameet.webp', '221019draft.webp', '221013colorscript.webp', '221010draft.webp', '221009_2.webp', '221009_1.webp', '221004.webp', '221003rain.webp', '220907draft~1.webp', '220907draft3.webp', '220907draft.webp', '220906.webp', '220901draft.webp', '220826_3.webp', '220826_2.webp', '220826_1.webp', '220812draft1.webp', '220804draft.webp', '220727draft.webp', '220711draft.webp', '220705draft.webp', '220618draft2.webp', '220618draft.webp', '220607draft.webp', '220604draft.webp', '220601draft2.webp', '220601draft.webp', '220514draft.webp']
@@ -76,6 +76,8 @@ const dotBoxes = document.getElementsByClassName("dotBox");
 const initRotation = dotBoxes.length / 2 * -6 + 3;
 
 function rotateDots() {
+    // gsap.fromTo(".main", { opacity: 0}, { opacity: 1, duration: 2}, "+=0.1");
+
     const tl = gsap.timeline();
     
     let i = 0;
@@ -334,7 +336,7 @@ function smoothJump(event) {
     const link = event.target.closest("a");
     const imageBox = event.target.closest(".imageBoxPrj");
     
-    if (link && link.href.includes("projects") && link.hash) {
+    if (link && link.href.includes("gallery") && link.hash) {
         event.preventDefault();
         const target = document.querySelector(link.hash);
 
@@ -414,12 +416,6 @@ function onUpdate() {
         videoBig.pause();
     });
 
-
-    // addEventListener("DOMContentLoaded", (event) => {
-    //     if (window.location.pathname.includes("projects")){
-    //         onCreate();
-    //     }
-    // });
 }
 
 
@@ -431,6 +427,7 @@ onUpdate();
 
 
 
+//////////////////////////////////////////////////////////////////
 
 
 
@@ -445,18 +442,11 @@ function removeAllEvent() {
 }
 
 
-// const links = document.querySelectorAll("a");
-
-// for (const link of links){
-//     link.addEventListener("click", removeAllEvent);
-// }
-
-
 
 document.addEventListener("click", (event) => {
     const link = event.target.closest("a");
 
-    if (link && link.href.includes("index")) {
+    if (link && !link.href.includes("gallery")) {
         removeAllEvent();
     }
 });

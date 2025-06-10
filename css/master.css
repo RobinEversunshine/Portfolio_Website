@@ -1,0 +1,191 @@
+:root {
+    --mainColor: #aa0e40;
+    --maxWidth: 1600px
+}
+
+
+
+/* 滚动条整体样式 */
+::-webkit-scrollbar {
+    width: 5px; /* 纵向滚动条宽度 */
+    height: 5px;
+}
+
+/* 滚动条轨道（背景） */
+::-webkit-scrollbar-track {
+    background: transparent; 
+    /* border-radius: 10px; */
+}
+
+/* 滚动条滑块（可拖动部分） */
+::-webkit-scrollbar-thumb {
+    background: var(--mainColor); 
+    /* border-radius: 5px; */
+}
+
+/* 滑块在悬停时的颜色 */
+/* ::-webkit-scrollbar-thumb:hover {
+    background: #0000007a; 
+} */
+
+
+
+
+@font-face {
+    font-family: "CircularStd";
+    src:url("CircularStd-Book.ttf");
+    
+}
+
+@font-face {
+    font-family: "ZallmanCaps";
+    src: url("ZallmanCaps.ttf");
+}
+
+@font-face {
+    font-family: "ZallmanCaps2";
+    src: url("ZallmanCaps.ttf");
+    size-adjust: 180%;
+}
+
+@font-face {
+    font-family: "BlackNory";
+    src: url("BlackNory-Regular.ttf");
+}
+
+
+
+* {
+    /* border: 1px solid black; */
+    font-family: "CircularStd";
+    font-weight: 500;
+    color: var(--mainColor);
+    /* color: black; */
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+body {
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    user-select: none;
+    opacity: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+h1 {
+    font-weight: 900;
+    font-size: 50px;
+}
+
+
+h2 {
+    font-size: 30px;
+    margin: 10px;
+    white-space: nowrap;
+}
+
+
+
+section {
+    /* border: 1px solid black; */
+    padding: 60px 0;
+    height: 100vh;
+    max-width: var(--maxWidth);
+}
+
+
+
+.main {
+    width: 100%;
+    height: 100%;
+    /* max-width: var(--maxWidth); */
+    /* opacity: 0; */
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+nav {
+    position: fixed;
+    width: 100%;
+    max-width: var(--maxWidth);
+    padding:10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    z-index: 10;
+    pointer-events: none;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.homeLink {
+    width: 150px;
+    pointer-events: auto;
+    font-size: 25px;
+
+    transition: scale 0.2s ease, width 0.2s ease 0.1s;
+}
+.homeLink:hover {
+    scale: 1.15;
+    width: 160px;
+}
+
+
+.upTitleLink {
+    padding-left:10px;
+    padding-right:10px;
+    text-decoration: none;
+    font-size: 15px;
+    pointer-events: auto;
+
+    transition: font-size 0.2s ease;
+}
+
+.upTitleLink:hover {
+    font-size: 20px;
+}
+
+
+
+@media screen and (max-width: 520px) {
+    /* .upTitleText {
+        font-size: 15px;
+    } */
+    nav a {
+        font-size: 12px;
+    }
+}
+

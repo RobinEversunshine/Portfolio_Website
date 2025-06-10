@@ -79,7 +79,8 @@ barba.init({
         leave({ current }) {
             let leaveAnim;
 
-            if (localStorage.getItem("path").includes("projects")){
+            // gallery transition
+            if (localStorage.getItem("path").includes("gallery")){
                 // dots fade in animation
                 const dotBoxes = current.container.querySelectorAll(".dotBox");
                 const initRotation = dotBoxes.length / 2 * -6 + 3;
@@ -101,7 +102,8 @@ barba.init({
                     .set(current.container, { display: "none" });
 
 
-            } else {
+            // index transition
+            } else if (localStorage.getItem("path").includes("index")){
                 const projects = current.container.querySelectorAll(".rotateBox");
                 const tl = gsap.timeline();
 
@@ -135,6 +137,12 @@ barba.init({
                 //     current.container.style.display = "none";
                 //     current.container.style.transform = "none";
                 // });
+            } else {
+                 leaveAnim = 
+                // return 
+                gsap.timeline()
+                    .to(current.container.querySelector(".section"), {opacity: 0, duration: 0.5 }, "+=0.1")
+                    .set(current.container, { display: "none" });
             }
             return leaveAnim;
         },
