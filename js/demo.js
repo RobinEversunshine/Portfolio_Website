@@ -1,8 +1,11 @@
 
 
 
-const main = document.getElementsByClassName("main")[0];
-gsap.timeline().from(main, { opacity: 0}, 0.2);
+const title = document.getElementsByClassName("title")[0];
+const video = document.getElementsByClassName("video")[0];
+
+gsap.timeline().from(title, { y: 60, opacity: 0, duration: 1 }, "+=0.5")
+    .from(video, { y: 60, opacity: 0, duration: 1 }, "-=0.8");
 
 
 

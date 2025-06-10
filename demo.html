@@ -26,7 +26,7 @@
 
 <body data-barba="wrapper">
     <nav>
-        <a class="homeLink" href="index.html#title">
+        <a class="upTitleLink active" href="index.html#title">
             <p>Robin's Site</p>
         </a>
         <a class="upTitleLink" href="demo.html#">Demoreels</a>
@@ -44,7 +44,7 @@
     <div class="main" data-barba="container" data-barba-namespace="about">
         <link rel="stylesheet" href="css/demoStyle.css" />
 
-        <section class="section">
+        <section style="overflow: hidden;">
             <div style="height: 100%; 
                 gap: 12px;
 
@@ -53,10 +53,10 @@
                 justify-content: center;
                 align-items: center;
                 ">
-                <div>
+                <div class="title">
                     <h2 style="font-family: 'BlackNory', 'CircularStd'; font-size: 48px;">2025 Visual Effects & Technical Art Demoreel</h2>
                 </div>
-                <div style="
+                <div class="video" style="
                     /* border: 1px solid black; */
                     height: 540px;
                     border-radius: 25px; 
@@ -78,6 +78,7 @@
         <script src="js/demo.js"></script>
         <script src="js/lenis.js"></script>
     </div>
+    <script src="js/nav.js"></script>
     <script src="js/transitioning.js"></script>
     
     

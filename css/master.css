@@ -132,6 +132,7 @@ section {
 nav {
     position: fixed;
     width: 100%;
+    height: 50px;
     max-width: var(--maxWidth);
     padding:10px;
     padding-left: 30px;
@@ -146,33 +147,26 @@ nav {
 }
 
 
-.homeLink {
-    width: 150px;
-    pointer-events: auto;
-    font-size: 25px;
-
-    transition: scale 0.2s ease, width 0.2s ease 0.1s;
-}
-.homeLink:hover {
-    scale: 1.15;
-    width: 160px;
-}
-
 
 .upTitleLink {
     padding-left:10px;
     padding-right:10px;
-    text-decoration: none;
     font-size: 15px;
-    pointer-events: auto;
 
-    transition: font-size 0.2s ease;
+    pointer-events: auto;
+    transition: font-size 0.3s cubic-bezier(0.8, 0, 0.2, 1);
 }
 
 .upTitleLink:hover {
     font-size: 20px;
+    transition-duration: 0.3s;
 }
 
+
+.upTitleLink.active {
+    font-size: 25px;
+    transition-duration: 1s;
+}
 
 
 @media screen and (max-width: 520px) {

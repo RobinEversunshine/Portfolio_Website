@@ -137,11 +137,14 @@ barba.init({
                 //     current.container.style.display = "none";
                 //     current.container.style.transform = "none";
                 // });
-            } else {
-                 leaveAnim = 
+            
+            // demo transition
+            } else if (localStorage.getItem("path").includes("demo")){
+                leaveAnim = 
                 // return 
                 gsap.timeline()
-                    .to(current.container.querySelector(".section"), {opacity: 0, duration: 0.5 }, "+=0.1")
+                    .to(current.container.querySelector(".title"), {y: -100, opacity: 0, duration: 1 }, "+=0.2")
+                    .to(current.container.querySelector(".video"), {y: 200, opacity: 0, duration: 1 }, "-=0.7")
                     .set(current.container, { display: "none" });
             }
             return leaveAnim;
