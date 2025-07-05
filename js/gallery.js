@@ -139,7 +139,7 @@ let currentPrj = 0;
 let lastPrj = -2;
 
 function getCenterClass() {
-    let minDiff = Infinity;
+    // let minDiff = Infinity;
     let i = -1;
 
     for(const item of scrollClasses){

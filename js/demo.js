@@ -1,12 +1,17 @@
 
 
 
-const title = document.getElementsByClassName("title")[0];
-const video = document.getElementsByClassName("video")[0];
+const demoTitles = document.getElementsByClassName("demoTitle");
+const videos = document.getElementsByClassName("video");
 
-gsap.timeline().from(title, { y: 60, opacity: 0, duration: 1 }, "+=0.5")
+
+for(let i = 0; i < demoTitles.length; i++){
+    const demoTitle = demoTitles[i];
+    const video = videos[i];
+
+    gsap.timeline().from(demoTitle, { y: 60, opacity: 0, duration: 1 }, "+=0.5")
     .from(video, { y: 60, opacity: 0, duration: 1 }, "-=0.8");
-
+}
 
 
 

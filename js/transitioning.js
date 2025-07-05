@@ -143,7 +143,7 @@ barba.init({
                 leaveAnim = 
                 // return 
                 gsap.timeline()
-                    .to(current.container.querySelector(".title"), {y: -100, opacity: 0, duration: 1 }, "+=0.2")
+                    .to(current.container.querySelector(".demoTitle"), {y: -100, opacity: 0, duration: 1 }, "+=0.2")
                     .to(current.container.querySelector(".video"), {y: 200, opacity: 0, duration: 1 }, "-=0.7")
                     .set(current.container, { display: "none" });
             }
