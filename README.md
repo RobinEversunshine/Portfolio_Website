@@ -2,3 +2,4 @@
 A custom website I made using simple html.
 
 Link: https://robineversunshine.github.io/Portfolio_Website/
+(It's not mobile ready so please open on PC)
