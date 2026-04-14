@@ -1,23 +1,378 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" href="icon.png" type="image/png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Who is Robin Cai?</title>
-
+    <!-- Open Graph (OG) 标签 -->
     <meta property="og:title" content="Who is Robin Cai?">
     <meta property="og:description" content="Robin's Portfolio Website">
-    <meta property="og:image" content="preview.png">
+    <meta property="og:image" content="https://i.imgs.ovh/2025/03/11/Cqgtn.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://robineversunshine.github.io/Portfolio_Website/">
     <meta property="og:type" content="website">
-    <script type="module" crossorigin src="/Portfolio_Website/assets/index-BfgP_fB7.js"></script>
-    <link rel="stylesheet" crossorigin href="/Portfolio_Website/assets/index-DF9pKbEq.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+
+    <title>Who is Robin Cai?</title>
+    <link rel="icon" href="https://i.imgs.ovh/2025/02/12/4x4d.png" type="image/png">
+    <link rel="stylesheet" href="css/master.css" />
+
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+    <script src="https://unpkg.com/@barba/core"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body data-barba="wrapper" data-barba-namespace="home">
+    <nav>
+        <a class="upTitleLink active" href="index.html#title">
+            <p>Robin's Site</p>
+        </a>
+        <a class="upTitleLink" href="demo.html#">Demoreels</a>
+        <a class="upTitleLink" href="gallery.html#moth">Gallery</a>
+        <a class="upTitleLink" href="index.html#about">About</a>
+        <a class="upTitleLink" href="https://elevated-temples.notion.site/main">Houdini Notes</a>
+
+        <p style="flex:1;">&nbsp;</p>
+
+        <a class="upTitleLink" href="https://www.youtube.com/@Eversunshine/">Youtube</a>
+        <a class="upTitleLink" href="https://www.linkedin.com/in/xinyu-robin-cai/">Linkedin</a>
+        <a class="upTitleLink" href="https://www.artstation.com/robin_eversunshine">Artstation</a>
+        <a class="upTitleLink" href="https://github.com/RobinEversunshine">GitHub</a>
+    </nav>
+
+    <div class="main" data-barba="container">
+        <link rel="stylesheet" href="css/indexStyle.css" />
+        <div id="title" class="titleContainer">
+            <div style="
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            ">
+                <span class="title">Who</span>
+                <span class="title">is</span>
+                <span class="title">Robin</span>
+                <span class="title">Cai</span>
+                <span class="title">?</span>
+            </div>
+        </div>
+
+
+        <div style="
+        /* border: 1px solid rgb(255, 0, 0); */
+        position: relative;
+        width: 100%;
+        height: 115vh;
+        font-size: 30px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        ">
+            <p>·</p>
+            <p>·</p>
+            <p>·</p>
+            <p>·</p>
+            <p>·</p>
+            <p>·</p>
+            <p>·</p>
+        </div>
+
+
+
+        <div class="rotateContainer">
+            <div class="rotateContainer2">
+                <div id="iam" class="iam" style="
+                    /* border: 1px solid rgb(22, 201, 255); */
+                    position: absolute;
+                    top: 48%;
+                    left: 20px;
+                    width: 200px;
+                    text-align: left;
+                    opacity: 0%;
+
+                    transition: opacity 0.5s ease;
+                    ">
+                    <h2>I am...</h2>
+                </div>
+
+                <div class="rotateContainer3">
+                    <div class="rotateBox">
+                        <div class="projectBox">
+                            <div class="projectBox2">
+                                <h2>Animation Director</h2>
+                                <div class="line"></div>
+                                <p class="desc">Directed a few 3D short films</p>
+                            </div>
+                            <a class="link" href="gallery.html#moth" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/anim.jpg">
+                                    <div class="imageBoxMask">
+                                        <p>Moth to a Candle</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rotateBox">
+                        <div class="projectBox">
+                            <div class="projectBox2">
+                                <h2>VFX Artist</h2>
+                                <div class="line"></div>
+                                <p class="desc">Cloth & hair sims, lighting, compositing</p>
+                            </div>
+                            <a class="link" href="gallery.html#fx" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/vfx.jpg">
+                                    <div class="imageBoxMask">
+                                        <p>Visual Effet Works</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rotateBox">
+                        <div class="projectBox">
+                            <div class="projectBox2">
+                                <h2>Technical Artist</h2>
+                                <div class="line"></div>
+                                <p class="desc">Pipeline, procedural rigging, Vex, Python</p>
+                            </div>
+                            <a class="link" href="https://www.artstation.com/robin_eversunshine/albums/14114973" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/tech.jpg">
+                                    <div class="imageBoxMask">
+                                        <p>Robin's Artstation</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rotateBox">
+                        <div class="projectBox">
+                            <div class="projectBox2">
+                                <h2>Programmer</h2>
+                                <div class="line"></div>
+                                <p class="desc">Mainly using Python to create tools</p>
+                            </div>
+                            <a class="link" href="https://github.com/RobinEversunshine" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/code.jpg">
+                                    <div class="imageBoxMask">
+                                        <p>Robin's GitHub</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rotateBox">
+                        <div class="projectBox">
+                            <div class="projectBox2">
+                                <h2>Game Developer</h2>
+                                <div class="line"></div>
+                                <p class="desc">Godot is my favorite</p>
+                            </div>
+                            <a class="link" href="gallery.html#hk" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/game.jpg">
+                                    <div class="imageBoxMask">
+                                        <p>Hollow Knight Pixelized</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="rotateBox">
+                        <div class="projectBox">
+                            <div class="projectBox2">
+                                <h2>Web Designer</h2>
+                                <div class="line"></div>
+                                <p class="desc">The site you see now is built by myself!</p>
+                            </div>
+                            <a class="link" href="https://github.com/RobinEversunshine/Portfolio_Website" target="_self">
+                                <div class="imageBox">
+                                    <img src="images/web.webp">
+                                    <div class="imageBoxMask">
+                                        <p>Source Code of This Site</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="descriptionContainer">
+                <div class="descriptionBox">
+                    <p class="description">
+                        Weaving stories into motion, I breathe life into frames, ensuring rhythm, emotion, and purpose guide every scene. From the first spark of an idea to the final render, I balance artistic expression with technical mastery, sculpting narratives that resonate.            
+                    </p>
+                    <p class="description2">
+                        My journey spans both 2D and 3D animation, though 3D is my true canvas. From concept art to storyboarding, modeling to texturing, lighting to final composition, I orchestrate every step. Each frame is a brushstroke, each movement a heartbeat, shaping worlds where imagination takes flight.              
+                    </p>
+                </div>
+
+                <div class="descriptionBox">
+                    <p class="description">
+                        Reality bends at my fingertips as I sculpt fire, weave light, and summon winds of particles into existence. Through simulations, compositing, and procedural magic, I infuse stories with cinematic spectacle.               
+                    </p>
+                    <p class="description2">
+                        Specializing in cloth and hair simulation, dynamic lighting, rendering, and compositing, I craft illusions that feel tangible. Whether it's shattering structures, swirling embers, or cascading fabrics, I strive to blur the line between the real and the imagined—painting motion with physics, coding chaos into beauty.
+                    </p>
+                </div>
+
+                <div class="descriptionBox">
+                    <p class="description">
+                        Where art meets technology, I bridge the gap, forging tools, shaders, and pipelines that breathe efficiency into creativity. My hands sculpt not only visuals but the very process itself, streamlining workflows and unlocking new realms of possibility.                   
+                    </p>
+                    <p class="description2">
+                        With expertise in pipeline automation, procedural modeling, rigging, and texturing, I craft efficiency with Python, VEX, and MEL inside Houdini and Maya. Each tool is a key, each script a bridge—guiding artists from vision to execution with seamless precision.              
+                    </p>
+                </div>
+
+                <div class="descriptionBox">
+                    <p class="description">
+                        In the language of logic, I craft order from chaos, building systems that function with precision and intent. Every keystroke is a step toward efficiency, whether refining workflows, automating tasks, or sculpting digital experiences.
+                    </p>
+                    <p class="description2">
+                        Python is my tool of choice, a silent assistant that simplifies time management, sharpens productivity, and shapes custom tools to streamline my creative process. In every line of code, there is a purpose—to create, to enhance, to empower.
+                    </p>
+                </div>
+
+                <div class="descriptionBox">
+                    <p class="description">
+                        There is a world that begins with an idea, and I shape that idea into play. Every mechanic is a pulse, every interaction a story, inviting players to engage, explore, and discover.
+                    </p>
+                    <p class="description2">
+                        Experimenting with different engines, I’ve dabbled in pixel-art platformers, interactive puzzles, and physics-based mechanics. Godot has been a canvas for prototyping unique gameplay ideas, while Unity is where I continue to explore game physics and mechanics, refining my understanding of interactive design. In Unreal Engine, I craft stunning landscapes, molding light with Lumen to create breathtaking, immersive worlds.
+                    </p>
+                </div>
+
+                <div class="descriptionBox">
+                    <p class="description">
+                        A digital space is more than pixels and code—it is an experience, a conversation, an invitation. I design not just with aesthetics in mind, but with purpose, ensuring seamless functionality and intuitive interaction.
+                    </p>
+                    <p class="description2">
+                        The very site before you is crafted by my hands, built from scratch to be an extension of my creativity. Every element, every transition, every detail—designed, programmed, and polished to reflect the essence of who I am.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="videoContainer">
+            <div class="videoMask"></div>
+
+            <video disablePictureInPicture autoplay loop muted id="video1">
+                <source id="source1" src="videos/anim.mp4" type="video/mp4">
+            </video>
+
+            <video disablePictureInPicture style="opacity: 0%;" autoplay loop muted id="video2">
+                <source id="source2" src="" type="video/mp4">
+            </video>
+            
+        </div>
+
+        <div style="
+        /* border: 1px solid rgb(115, 0, 255); */
+        height: 95vh; 
+        width: 100%;
+        z-index: -10;
+        ">
+        </div>
+
+        <div style="
+        /* border: 1px solid rgb(115, 0, 255); */
+        height: 4100px;
+        width: 100%;
+        z-index: -10;
+        ">
+
+        </div>
+
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container about-content">
+                <div class="about-image">
+                    <img src="images/piano.png">
+                </div>
+
+                <div class="about-text">
+                    <h2 class="section-title">About Me</h2>
+                    <p>
+                        Exploring into the world of 3D has always been a passion to me. I like collecting information and knowledges, figuring out how to achieve something really tricky and find out solutions. Every time I figure out the answer, it's just like a Eureka moment and can really make me fulfilled.
+                    </p>
+                    <p>
+                        Currently I'm working as a volunteer VFX artist in Crash Landing Studio, where I manipulate nodes and codes in Houdini and build seamless pipelines between Blender and that.
+
+                    </p>
+                    <p>
+                        I'm also a fast learner, and learning more and more is a lifetime topic to me.
+                    </p>
+                    <p>
+                        Thank you for viewing my site!
+                    </p>
+
+                    <div class="linkBox">
+                        <a href="https://www.youtube.com/@Eversunshine/" target="_blank" alt="Twitter">
+                            <div class="linkIcon">
+                                <img src="images/icons/youtube.png">
+                            </div>
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/xinyu-robin-cai/" target="_blank" alt="Instagram">
+                            <div class="linkIcon">
+                                <img src="images/icons/linkedin.png">
+                            </div>
+                        </a>
+
+                        <a href="https://www.artstation.com/robin_eversunshine" target="_blank" alt="Instagram">
+                            <div class="linkIcon">
+                                <img src="images/icons/artstation.png">
+                            </div>
+                        </a>
+
+                        <a href="https://github.com/RobinEversunshine" target="_blank" alt="Instagram">
+                            <div class="linkIcon">
+                                <img src="images/icons/github.png">
+                            </div>
+                        </a>
+
+                        <a href="mailto:robinrainup@gmail.com" target="_blank" alt="Instagram">
+                            <div class="linkIcon">
+                                <img src="images/icons/email.png">
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                
+            </div>
+        </section>
+
+        <div style="
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            font-size: 15px;
+        ">
+            <p>
+                © 2025 Powered by Robin Cai
+            </p>
+        </div>
+        <script src="js/index.js"></script>
+    </div>
+    <script src="js/nav.js"></script>
+    <script src="js/transitioning.js"></script>
+
+</body>
+
 </html>
+
